@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AuliaSoft — No Cap, Bisnis Lo Makin Lit 🔥</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --y: #FFE135;
+  --g: #0AFF6C;
+  --p: #C084FC;
+  --r: #FF3B6B;
+  --b: #38BDF8;
+  --dark: #0A0A0A;
+  --darker: #050505;
+  --card: #111111;
+  --muted: #666;
+  --border: #222;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--darker);
+  color:#fff;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* CUSTOM CURSOR */
+.cursor{
+  width:12px;height:12px;
+  background:var(--y);
+  border-radius:50%;
+  position:fixed;top:0;left:0;
+  pointer-events:none;z-index:9999;
+  transition:transform .15s, background .2s;
+  mix-blend-mode:difference;
+}
+.cursor-ring{
+  width:36px;height:36px;
+  border:1.5px solid var(--y);
+  border-radius:50%;
+  position:fixed;top:0;left:0;
+  pointer-events:none;z-index:9998;
+  transition:all .08s linear;
+  mix-blend-mode:difference;
+}
+
+/* NOISE OVERLAY */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.035;
+  pointer-events:none;
+  z-index:9997;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 40px;
+  border-bottom:1px solid var(--border);
+  background:rgba(5,5,5,0.85);
+  backdrop-filter:blur(20px);
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;
+  font-size:1.4rem;font-weight:800;
+  letter-spacing:-1px;color:#fff;
+  display:flex;align-items:center;gap:8px;
+}
+.nav-logo .dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--y);
+  display:inline-block;
+  animation:blink 1.2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.nav-pill{
+  display:flex;align-items:center;gap:10px;
+}
+.nav-tag{
+  font-family:'Space Mono',monospace;
+  font-size:.65rem;color:var(--muted);
+  border:1px solid var(--border);
+  padding:4px 10px;border-radius:4px;
+}
+.nav-cta{
+  background:var(--y);color:var(--dark);
+  border:none;cursor:pointer;
+  padding:9px 20px;border-radius:4px;
+  font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;
+  text-decoration:none;letter-spacing:.02em;
+  transition:transform .15s,box-shadow .15s;
+}
+.nav-cta:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--r)}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:center;
+  padding:140px 40px 80px;
+  position:relative;overflow:hidden;
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+.marquee-wrap{
+  position:absolute;bottom:80px;left:-20px;right:-20px;
+  overflow:hidden;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:10px 0;
+  white-space:nowrap;
+}
+.marquee-inner{
+  display:inline-block;
+  animation:marquee 16s linear infinite;
+  font-family:'Space Mono',monospace;
+  font-size:.7rem;color:var(--muted);
+  letter-spacing:.1em;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.hero-eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:.7rem;color:var(--g);
+  letter-spacing:.15em;text-transform:uppercase;
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:8px;
+}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--g)}
+.hero h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(3rem,9vw,8rem);
+  font-weight:800;
+  line-height:.95;
+  letter-spacing:-3px;
+  max-width:1000px;
+  margin-bottom:32px;
+}
+.hero h1 .line2{color:var(--y);display:block}
+.hero h1 .line3{
+  color:transparent;
+  -webkit-text-stroke:2px rgba(255,255,255,.25);
+  display:block;
+}
+.hero-sub{
+  font-size:1rem;color:var(--muted);
+  max-width:480px;line-height:1.7;
+  margin-bottom:40px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-z{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:.9rem;padding:13px 28px;
+  border-radius:4px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:transform .15s,box-shadow .15s;
+  letter-spacing:.02em;
+}
+.btn-z:hover{transform:translate(-3px,-3px)}
+.btn-z.solid{background:var(--y);color:var(--dark)}
+.btn-z.solid:hover{box-shadow:5px 5px 0 var(--r)}
+.btn-z.ghost{background:transparent;color:#fff;border:1.5px solid var(--border)}
+.btn-z.ghost:hover{box-shadow:5px 5px 0 var(--p);border-color:var(--p);color:var(--p)}
+
+.hero-stats{
+  display:flex;gap:0;
+  margin-top:60px;
+  border:1px solid var(--border);
+  border-radius:4px;
+  width:fit-content;
+  overflow:hidden;
+}
+.stat{
+  padding:16px 32px;
+  border-right:1px solid var(--border);
+  text-align:left;
+}
+.stat:last-child{border-right:none}
+.stat-num{
+  font-family:'Syne',sans-serif;
+  font-size:1.8rem;font-weight:800;
+  color:#fff;line-height:1;
+  margin-bottom:2px;
+}
+.stat-num span{color:var(--y)}
+.stat-label{font-size:.7rem;color:var(--muted);font-family:'Space Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
+
+/* FLOATING PILL */
+.float-tag{
+  position:absolute;
+  font-family:'Space Mono',monospace;
+  font-size:.65rem;font-weight:700;
+  padding:6px 14px;border-radius:999px;
+  animation:float 4s ease-in-out infinite;
+  white-space:nowrap;
+}
+.ft1{top:22%;right:8%;background:var(--r);color:#fff;animation-delay:0s}
+.ft2{top:38%;right:14%;background:var(--b);color:var(--dark);animation-delay:.8s}
+.ft3{top:55%;right:6%;background:var(--p);color:#fff;animation-delay:1.6s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* SECTION HEADING */
+.sec-wrap{padding:80px 40px;max-width:1280px;margin:0 auto}
+.sec-label{
+  font-family:'Space Mono',monospace;
+  font-size:.65rem;color:var(--g);
+  letter-spacing:.15em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:12px;
+}
+.sec-label::before{content:'→';color:var(--g)}
+.sec-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2rem,5vw,4rem);
+  font-weight:800;letter-spacing:-2px;
+  line-height:1;margin-bottom:48px;
+}
+.sec-title em{color:var(--y);font-style:normal}
+
+/* PK GRID */
+.pk-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+}
+.pk-card{
+  background:var(--card);
+  padding:28px;
+  position:relative;
+  overflow:hidden;
+  transition:background .2s;
+}
+.pk-card:hover{background:#161616}
+.pk-card:hover .pk-num{opacity:.15}
+.pk-num{
+  font-family:'Syne',sans-serif;
+  font-size:5rem;font-weight:800;
+  color:#fff;opacity:.04;
+  position:absolute;top:16px;right:16px;
+  line-height:1;user-select:none;
+  transition:opacity .3s;
+}
+.pk-icon{
+  font-size:1.2rem;margin-bottom:14px;
+}
+.pk-card h3{
+  font-family:'Syne',sans-serif;
+  font-size:1rem;font-weight:800;
+  color:#fff;margin-bottom:8px;
+  letter-spacing:-.02em;
+}
+.pk-card p{font-size:.875rem;color:var(--muted);line-height:1.65}
+.pk-tag{
+  display:inline-flex;margin-top:14px;
+  font-family:'Space Mono',monospace;
+  font-size:.6rem;font-weight:700;
+  padding:3px 10px;border-radius:2px;
+  letter-spacing:.05em;text-transform:uppercase;
+}
+.t-y{background:rgba(255,225,53,.15);color:var(--y)}
+.t-g{background:rgba(10,255,108,.1);color:var(--g)}
+.t-p{background:rgba(192,132,252,.15);color:var(--p)}
+.t-r{background:rgba(255,59,107,.15);color:var(--r)}
+.t-b{background:rgba(56,189,248,.15);color:var(--b)}
+
+/* USE CASE */
+.pk-card--wide{grid-column:1 / -1}
+.uc-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.uc-tab{
+  font-family:'Space Mono',monospace;
+  font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  padding:7px 16px;border-radius:3px;
+  border:1px solid var(--border);
+  background:transparent;color:var(--muted);
+  cursor:pointer;transition:all .15s;
+}
+.uc-tab:hover,.uc-tab.active{
+  background:var(--y);color:var(--dark);border-color:var(--y);
+}
+.uc-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.uc-item{
+  background:#0d0d0d;border:1px solid var(--border);
+  border-radius:3px;padding:10px 12px;
+  font-size:.82rem;color:#aaa;
+  display:flex;align-items:flex-start;gap:8px;
+  transition:border-color .15s,color .15s;
+}
+.uc-item:hover{border-color:var(--y);color:#fff}
+.uc-dot{width:6px;height:6px;border-radius:50%;background:var(--g);flex-shrink:0;margin-top:5px}
+.uc-dot.ext{background:var(--border)}
+.uc-badge{
+  margin-left:auto;flex-shrink:0;
+  background:rgba(192,132,252,.15);color:var(--p);
+  border-radius:2px;padding:1px 5px;font-size:.65rem;
+  font-family:'Space Mono',monospace;white-space:nowrap;
+}
+
+.use-case-img {
+  display: block;      /* Wajib ada agar margin auto bekerja */
+  margin-left: auto;   /* Center horizontal */
+  margin-right: auto;  /* Center horizontal */
+  margin-top: 24px;    /* Jarak atas */
+  margin-bottom: 32px; /* Jarak bawah */
+  
+  width: 100%;
+  max-width: 700px;    /* Ukuran maksimal agar tidak terlalu memenuhi layar */
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;    /* Menjaga keterbacaan diagram */
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Efek bayangan biar 'pop-out' */
+}
+
+/* PRODUCTS DARK BAND */
+.products-band{
+  background:var(--dark);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:80px 40px;
+}
+.products-inner{max-width:1280px;margin:0 auto}
+.prod-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  margin-top:48px;
+}
+.prod-card{
+  background:#080808;
+  padding:22px;
+  transition:background .2s;
+  position:relative;overflow:hidden;
+}
+.prod-card::after{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--y);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .3s;
+}
+.prod-card:hover{background:#0f0f0f}
+.prod-card:hover::after{transform:scaleX(1)}
+.prod-cat{
+  font-family:'Space Mono',monospace;
+  font-size:.6rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--g);
+  margin-bottom:8px;
+}
+.prod-name{
+  font-family:'Syne',sans-serif;
+  font-size:.95rem;font-weight:800;
+  color:#fff;margin-bottom:8px;
+}
+.prod-desc{font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.prod-price{
+  font-family:'Space Mono',monospace;
+  font-size:.9rem;font-weight:700;color:var(--y);
+}
+
+/* CTA BLOCK */
+.cta-block{
+  padding:80px 40px;
+  max-width:1280px;margin:0 auto;
+}
+.cta-inner{
+  border:1px solid var(--border);
+  background:var(--card);
+  border-radius:8px;
+  padding:60px 48px;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:center;gap:40px;
+  position:relative;overflow:hidden;
+}
+.cta-inner::before{
+  content:'LETS GO';
+  font-family:'Syne',sans-serif;
+  font-size:10rem;font-weight:800;
+  color:rgba(255,225,53,.03);
+  position:absolute;right:-20px;top:50%;
+  transform:translateY(-50%);
+  white-space:nowrap;pointer-events:none;
+  letter-spacing:-4px;
+}
+.cta-inner h2{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.8rem,4vw,3.5rem);
+  font-weight:800;line-height:1;
+  letter-spacing:-2px;
+  margin-bottom:12px;
+}
+.cta-inner h2 em{color:var(--y);font-style:normal}
+.cta-inner p{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:420px}
+.cta-wa{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--g);color:var(--dark);
+  padding:14px 28px;border-radius:4px;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;
+  text-decoration:none;white-space:nowrap;
+  transition:transform .15s,box-shadow .15s;
+}
+.cta-wa:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--y)}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:28px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-logo{
+  font-family:'Syne',sans-serif;
+  font-size:1rem;font-weight:800;color:#fff;
+  text-decoration:none;
+}
+footer p{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted);letter-spacing:.05em}
+footer a{color:var(--y);text-decoration:none}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
+.reveal.on{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  .hero{padding:120px 20px 80px}
+  .hero h1{letter-spacing:-1px}
+  .hero-stats{flex-direction:column;width:100%}
+  .stat{border-right:none;border-bottom:1px solid var(--border)}
+  .stat:last-child{border-bottom:none}
+  .float-tag{display:none}
+  .sec-wrap,.products-band,.cta-block{padding:60px 20px}
+  .cta-inner{grid-template-columns:1fr;text-align:center}
+  footer{padding:24px 20px;text-align:center;justify-content:center}
+  nav .nav-tag{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="dot"></div>
+    AuliaSoft
+  </div>
+  <div class="nav-pill">
+    <span class="nav-tag">v2.0 — 2026</span>
+    <a href="https://wa.me/6281241945881" class="nav-cta" target="_blank">Chat → WA</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+
+  <span class="float-tag ft1">KOPERASI ✓</span>
+  <span class="float-tag ft2">UMKM READY</span>
+  <span class="float-tag ft3">24/7 SUPPORT</span>
+
+  <div class="hero-eyebrow">Solusi Digital Indonesia</div>
+
+  <h1>
+    Bisnis Lo
+    <em class="line2">Ga Perlu</em>
+    <span class="line3">Ribet Lagi</span>
+  </h1>
+
+  <p class="hero-sub">Aplikasi manajemen bisnis all-in-one buat Koperasi, UMKM, BUMDes, Mini Bank, LAZIS — langsung jalan, no drama.</p>
+
+  <div class="hero-actions">
+    <a href="https://www.auliasoft.com" class="btn-z solid" target="_blank">Explore Produk ↗</a>
+    <a href="https://wa.me/6281241945881" class="btn-z ghost" target="_blank">Konsultasi Gratis</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">1.5<span>+</span></div>
+      <div class="stat-label">Tahun Garansi</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24<span>/7</span></div>
+      <div class="stat-label">Support Online</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10<span>+</span></div>
+      <div class="stat-label">Kategori Produk</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100<span>+</span></div>
+      <div class="stat-label">Mitra Usaha</div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      KOPERASI KSP &nbsp;·&nbsp; UMKM &nbsp;·&nbsp; BUMDES &nbsp;·&nbsp; MINI BANK &nbsp;·&nbsp; LAZIS &nbsp;·&nbsp; TOKO SEMBAKO &nbsp;·&nbsp; MINI MARKET &nbsp;·&nbsp; TOKO OPTIK &nbsp;·&nbsp; COUNTER HP &nbsp;·&nbsp; KSPPS BMT &nbsp;·&nbsp;
+      KOPERASI KSP &nbsp;·&nbsp; UMKM &nbsp;·&nbsp; BUMDES &nbsp;·&nbsp; MINI BANK &nbsp;·&nbsp; LAZIS &nbsp;·&nbsp; TOKO SEMBAKO &nbsp;·&nbsp; MINI MARKET &nbsp;·&nbsp; TOKO OPTIK &nbsp;·&nbsp; COUNTER HP &nbsp;·&nbsp; KSPPS BMT &nbsp;·&nbsp;
+    </div>
+  </div>
+</section>
+
+<!-- 12 PRODUCT KNOWLEDGE -->
+<div class="sec-wrap">
+  <div class="reveal">
+    <div class="sec-label">Product Knowledge</div>
+    <div class="sec-title">12 Hal yang Lo<br/>Wajib Tau tentang <em>AuliaSoft</em></div>
+  </div>
+
+  <div class="pk-grid reveal">
+
+    <div class="pk-card">
+      <div class="pk-num">01</div>
+      <div class="pk-icon">💸</div>
+      <h3>Harga Gak Bikin Dompet Nangis</h3>
+      <p>Mulai dari <strong style="color:#fff">Rp 1.500.000</strong> udah dapet aplikasi bisnis lengkap. No hidden fee, no subscription trap. Bayar sekali, pake selamanya.</p>
+      <span class="pk-tag t-y">Pricing</span>
+    </div>
+
+    <div class="pk-card">
+      <div class="pk-num">02</div>
+      <div class="pk-icon">🙋</div>
+      <h3>FAQ — Jawaban Tanpa Basa-basi</h3>
+      <p>Perlu server? Nope. Offline jalan? Yep. Ada demo? Tentu. Sistem hybrid kami support mode online & offline tanpa repot setup server khusus.</p>
+      <span class="pk-tag t-g">FAQs</span>
+    </div>
+
+    <div class="pk-card">
+      <div class="pk-num">03</div>
+      <div class="pk-icon">🏢</div>
+      <h3>PT AuliaSoft — Bukan Kaleng-Kaleng</h3>
+      <p>Perusahaan teknologi Indonesia yang mitra resmi Kementerian Koperasi RI, Onecoop, Gantari, dan Cooplink. Udah terbukti, bukan baru coba-coba.</p>
+      <span class="pk-tag t-p">Brand</span>
+    </div>
+
+    <div class="pk-card">
+      <div class="pk-num">04</div>
+      <div class="pk-icon">🗺️</div>
+      <h3>Roadmap yang Terus Nge-level Up</h3>
+      <p>Dari integrasi payroll karyawan, Core Banking System, sampe ekosistem digital Kopdes KDMP — semua dalam satu platform yang terus berkembang.</p>
+      <span class="pk-tag t-b">Roadmap</span>
+    </div>
+
+    <div class="pk-card">
+      <div class="pk-num">05</div>
+      <div class="pk-icon">🏪</div>
+      <h3>Segmen Bisnis Lo Pasti Ada Disini</h3>
+      <p>KSP/KSPPS/BMT, Toko, BUMDes, Mini Bank, LAZIS, LKM/LKMS, Kopdes KDMP — semua segmen kita support dengan solusi yang pas.</p>
+      <span class="pk-tag t-r">Business Domain</span>
+    </div>
+
+    <div class="pk-card">
+      <div class="pk-num">06</div>
+      <div class="pk-icon">🛠️</div>
+      <h3>Custom Sesuai Vibe Bisnis Lo</h3>
+      <p>Bisnis lo unik? Kita punya layanan Keuangan/Custom yang dirancang sesuai alur bisnis spesifik lo. Tim dev berpengalaman siap eksekusi.</p>
+      <span class="pk-tag t-y">Customization</span>
+    </div>
+
+    <div class="pk-card">
+      <div class="pk-num">07</div>
+      <div class="pk-icon">🎯</div>
+      <h3>Siapa Aja yang Cocok Pake Ini?</h3>
+      <p>UMKM, pengurus koperasi, pengelola BUMDes, petugas LAZIS, manajemen lembaga keuangan mikro — yang mau move on dari catat manual ke digital.</p>
+      <span class="pk-tag t-g">Target Audience</span>
+    </div>
+
+    <div class="pk-card">
+      <div class="pk-num">08</div>
+      <div class="pk-icon">⚡</div>
+      <h3>Kenapa AuliaSoft Beda dari yang Lain?</h3>
+      <p>Harga lebih worth it, garansi 1,5 tahun, sistem hybrid on+offline, support WA 24/7, dan ekosistem mitra yang udah tersebar luas di Indonesia.</p>
+      <span class="pk-tag t-p">vs Kompetitor</span>
+    </div>
+
+    <!-- USE CASE WIDE CARD -->
+    <div class="pk-card pk-card--wide">
+    <div class="pk-num">09</div>
+      <div class="pk-icon">⚙️</div>
+      <h3>Fitur per Role — Alur Sistem</h3>
+      <p>Sistem dirancang untuk 4 role utama dengan alur kerja yang jelas dan terintegrasi seperti diagram di bawah ini.</p>
+
+      <img src="WhatsApp Image 2026-04-22 at 18.02.57.jpeg" alt="Diagram Use Case AuliaSoft" class="use-case-img">
+
+      <div class="uc-tabs">
+        <button class="uc-tab active" onclick="showActor('kasir',this)">// KASIR</button>
+        <button class="uc-tab" onclick="showActor('admin',this)">// ADMIN</button>
+        <button class="uc-tab" onclick="showActor('pemilik',this)">// PEMILIK</button>
+        <button class="uc-tab" onclick="showActor('customer',this)">// CUSTOMER</button>
+      </div>
+
+      <div class="uc-panel" id="uc-kasir">
+        <div class="uc-items">
+          <div class="uc-item"><span class="uc-dot"></span>Login ke sistem</div>
+          <div class="uc-item"><span class="uc-dot"></span>Transaksi Pembelian</div>
+          <div class="uc-item"><span class="uc-dot"></span>Transaksi Penjualan</div>
+          <div class="uc-item"><span class="uc-dot"></span>Melihat Data Produk</div>
+          <div class="uc-item"><span class="uc-dot ext"></span>Bayar via QRIS / Cash <span class="uc-badge">extend</span></div>
+          <div class="uc-item"><span class="uc-dot ext"></span>Pembayaran Kartu Kredit <span class="uc-badge">extend</span></div>
+          <div class="uc-item"><span class="uc-dot"></span>Logout</div>
+        </div>
+      </div>
+      <div class="uc-panel" id="uc-admin" style="display:none">
+        <div class="uc-items">
+          <div class="uc-item"><span class="uc-dot"></span>Mengelola Pembayaran</div>
+          <div class="uc-item"><span class="uc-dot"></span>Mengelola Pengguna</div>
+          <div class="uc-item"><span class="uc-dot"></span>Manajemen Karyawan</div>
+          <div class="uc-item"><span class="uc-dot"></span>Kelola CRM & Loyalitas</div>
+          <div class="uc-item"><span class="uc-dot"></span>Manajemen Pembayaran</div>
+        </div>
+      </div>
+      <div class="uc-panel" id="uc-pemilik" style="display:none">
+        <div class="uc-items">
+          <div class="uc-item"><span class="uc-dot"></span>Kelola Data Supplier</div>
+          <div class="uc-item"><span class="uc-dot"></span>Kelola Data Produk</div>
+          <div class="uc-item"><span class="uc-dot"></span>Laporan Penjualan</div>
+          <div class="uc-item"><span class="uc-dot"></span>Laporan Pembelian</div>
+          <div class="uc-item"><span class="uc-dot"></span>Logout</div>
+        </div>
+      </div>
+      <div class="uc-panel" id="uc-customer" style="display:none">
+        <div class="uc-items">
+          <div class="uc-item"><span class="uc-dot"></span>Melihat Halaman Produk</div>
+          <div class="uc-item"><span class="uc-dot"></span>Kelola Keranjang Belanja</div>
+          <div class="uc-item"><span class="uc-dot"></span>Melacak Pesanan</div>
+          <div class="uc-item"><span class="uc-dot ext"></span>Notif Status Pesanan <span class="uc-badge">include</span></div>
+        </div>
+      </div>
+      <span class="pk-tag t-b" style="margin-top:18px">Product Features</span>
+    </div>
+
+    <div class="pk-card">
+      <div class="pk-num">10</div>
+      <div class="pk-icon">🔗</div>
+      <h3>Ekosistem yang Udah Terhubung</h3>
+      <p>Lengkapi dengan Jasa Web dan Hardware dari AuliaSoft. Terintegrasi dengan Simkopdes, Onecoop, dan Cooplink untuk kapabilitas yang lebih luas.</p>
+      <span class="pk-tag t-r">Ecosystem</span>
+    </div>
+
+    <div class="pk-card">
+      <div class="pk-num">11</div>
+      <div class="pk-icon">💼</div>
+      <h3>Real Talk: Pengguna Nyata, Hasil Nyata</h3>
+      <p>Koperasi desa yang tadinya manual kini kelola ratusan anggota secara digital. Toko sembako pantau stok real-time. LAZIS bikin laporan dalam menit.</p>
+      <span class="pk-tag t-y">Use Cases</span>
+    </div>
+
+    <div class="pk-card">
+      <div class="pk-num">12</div>
+      <div class="pk-icon">📋</div>
+      <h3>Cara Order — Simpel Banget</h3>
+      <p>Chat WA → Konsultasi → Instalasi & onboarding → Garansi resmi 1,5 tahun. Support 24/7. Pengiriman ke seluruh Indonesia, fast & aman.</p>
+      <span class="pk-tag t-g">How to Order</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products-band">
+  <div class="products-inner">
+    <div class="reveal">
+      <div class="sec-label">Produk Unggulan</div>
+      <div class="sec-title">Pilih <em>Aplikasi</em><br/>yang Pas buat Lo</div>
+    </div>
+    <div class="prod-grid reveal">
+      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">Koperasi KSP</div><div class="prod-desc">Ekosistem digital hybrid buat operasional koperasi simpan pinjam.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">KSP Karyawan</div><div class="prod-desc">Solusi digital hybrid terintegrasi payroll untuk koperasi karyawan.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">KSPPS BMT</div><div class="prod-desc">Solusi syariah untuk operasional BMT yang aman dan terintegrasi.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Mini Bank</div><div class="prod-name">Mini Bank KSPPS</div><div class="prod-desc">Core Banking System untuk KSP besar yang mau layanan setara bank.</div><div class="prod-price">Rp 2.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Mini Market</div><div class="prod-desc">Sistem POS minimarket modern dengan fitur inventory lengkap.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Toko Sembako</div><div class="prod-desc">Manajemen toko kelontong & sembako dengan kasir digital.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Toko Optik</div><div class="prod-desc">POS kacamata dengan prescription management & laporan penjualan.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Counter HP</div><div class="prod-desc">Sistem POS counter handphone dengan fitur device tracking.</div><div class="prod-price">Rp 1.500.000</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-block">
+  <div class="cta-inner reveal">
+    <div>
+      <h2>Siap <em>Gaspol</em><br/>Digitalisasi Bisnis?</h2>
+      <p>Konsultasi gratis bareng tim AuliaSoft. Kita bantu kalian nemuin solusi yang paling pas buat jenis dan skala usaha kalian.</p>
+    </div>
+    <a href="https://wa.me/6281241945881" class="cta-wa" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.118 1.527 5.845L.057 23.761a.5.5 0 0 0 .614.632l6.077-1.595A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 0 1-5.028-1.383l-.36-.214-3.73.979.997-3.648-.235-.374A9.794 9.794 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Chat WA Sekarang ↗
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://www.auliasoft.com" class="footer-logo" target="_blank">OswaldWillybald©</a>
+  <p>© 2026 PT AuliaSoft · Support 24/7 via <a href="https://wa.me/6281241945881" target="_blank">WhatsApp</a></p>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=(mx-6)+'px';cursor.style.top=(my-6)+'px';
+});
+function animateRing(){
+  rx+=(mx-rx-18)*.1;ry+=(my-ry-18)*.1;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+// Use case tabs
+function showActor(actor,btn){
+  ['kasir','admin','pemilik','customer'].forEach(a=>{
+    document.getElementById('uc-'+a).style.display=(a===actor)?'block':'none';
+  });
+  document.querySelectorAll('.uc-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Scroll reveal
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('on'),i*80);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
