@@ -3,537 +3,305 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AuliaSoft — Solusi Digital Bisnis Indonesia 🔥</title>
+<title>Aulia e-POS — Product Knowledge | AuliaSoft Digital</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --y: #FFE135;
-  --g: #0AFF6C;
-  --p: #C084FC;
-  --r: #FF3B6B;
-  --b: #38BDF8;
-  --dark: #0A0A0A;
-  --darker: #050505;
-  --card: #111111;
-  --muted: #666;
-  --border: #222;
+  --y: #FFE135;--g: #0AFF6C;--p: #C084FC;--r: #FF3B6B;--b: #38BDF8;--o: #FF8C42;
+  --dark: #0A0A0A;--darker: #050505;--card: #111111;--muted: #666;--border: #222;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:'DM Sans',sans-serif;
-  background:var(--darker);
-  color:#fff;
-  overflow-x:hidden;
-  cursor:none;
-}
-
-/* CUSTOM CURSOR */
-.cursor{
-  width:12px;height:12px;
-  background:var(--y);
-  border-radius:50%;
-  position:fixed;top:0;left:0;
-  pointer-events:none;z-index:9999;
-  transition:transform .15s, background .2s;
-  mix-blend-mode:difference;
-}
-.cursor-ring{
-  width:36px;height:36px;
-  border:1.5px solid var(--y);
-  border-radius:50%;
-  position:fixed;top:0;left:0;
-  pointer-events:none;z-index:9998;
-  transition:all .08s linear;
-  mix-blend-mode:difference;
-}
-
-/* NOISE OVERLAY */
-body::before{
-  content:'';
-  position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity:.035;
-  pointer-events:none;
-  z-index:9997;
-}
+body{font-family:'DM Sans',sans-serif;background:var(--darker);color:#fff;overflow-x:hidden;cursor:none;}
+.cursor{width:12px;height:12px;background:var(--y);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;}
+.cursor-ring{width:36px;height:36px;border:1.5px solid var(--y);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:all .08s linear;mix-blend-mode:difference;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.035;pointer-events:none;z-index:9997;}
 
 /* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 40px;
-  border-bottom:1px solid var(--border);
-  background:rgba(5,5,5,0.85);
-  backdrop-filter:blur(20px);
-}
-.nav-logo{
-  font-family:'Syne',sans-serif;
-  font-size:1.4rem;font-weight:800;
-  letter-spacing:-1px;color:#fff;
-  display:flex;align-items:center;gap:8px;
-}
-.nav-logo .dot{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--y);
-  display:inline-block;
-  animation:blink 1.2s infinite;
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid var(--border);background:rgba(5,5,5,0.9);backdrop-filter:blur(20px);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-1px;color:#fff;display:flex;align-items:center;gap:8px;}
+.nav-logo .dot{width:8px;height:8px;border-radius:50%;background:var(--y);display:inline-block;animation:blink 1.2s infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.nav-pill{
-  display:flex;align-items:center;gap:10px;
-}
-.nav-tag{
-  font-family:'Space Mono',monospace;
-  font-size:.65rem;color:var(--muted);
-  border:1px solid var(--border);
-  padding:4px 10px;border-radius:4px;
-}
-.nav-cta{
-  background:var(--y);color:var(--dark);
-  border:none;cursor:pointer;
-  padding:9px 20px;border-radius:4px;
-  font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;
-  text-decoration:none;letter-spacing:.02em;
-  transition:transform .15s,box-shadow .15s;
-}
+.nav-tag{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted);border:1px solid var(--border);padding:4px 10px;border-radius:4px;}
+.nav-cta{background:var(--y);color:var(--dark);border:none;cursor:pointer;padding:9px 20px;border-radius:4px;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;text-decoration:none;transition:transform .15s,box-shadow .15s;}
 .nav-cta:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--r)}
 
 /* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;
-  justify-content:center;
-  padding:140px 40px 80px;
-  position:relative;overflow:hidden;
-}
-.hero-grid-bg{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size:60px 60px;
-}
-.marquee-wrap{
-  position:absolute;bottom:80px;left:-20px;right:-20px;
-  overflow:hidden;
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding:10px 0;
-  white-space:nowrap;
-}
-.marquee-inner{
-  display:inline-block;
-  animation:marquee 16s linear infinite;
-  font-family:'Space Mono',monospace;
-  font-size:.7rem;color:var(--muted);
-  letter-spacing:.1em;
-}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 40px 80px;position:relative;overflow:hidden;}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:60px 60px;}
+.marquee-wrap{position:absolute;bottom:80px;left:-20px;right:-20px;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 0;white-space:nowrap;}
+.marquee-inner{display:inline-block;animation:marquee 18s linear infinite;font-family:'Space Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:.1em;}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-.hero-eyebrow{
-  font-family:'Space Mono',monospace;
-  font-size:.7rem;color:var(--g);
-  letter-spacing:.15em;text-transform:uppercase;
-  margin-bottom:20px;
-  display:flex;align-items:center;gap:8px;
-}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--g);letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
 .hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--g)}
-.hero h1{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(3rem,9vw,8rem);
-  font-weight:800;
-  line-height:.95;
-  letter-spacing:-3px;
-  max-width:1000px;
-  margin-bottom:32px;
-}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,9vw,8rem);font-weight:800;line-height:.95;letter-spacing:-3px;max-width:1000px;margin-bottom:32px;}
 .hero h1 .line2{color:var(--y);display:block}
-.hero h1 .line3{
-  color:transparent;
-  -webkit-text-stroke:2px rgba(255,255,255,.25);
-  display:block;
-}
-.hero-sub{
-  font-size:1rem;color:var(--muted);
-  max-width:480px;line-height:1.7;
-  margin-bottom:40px;
-}
+.hero h1 .line3{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.25);display:block;}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:480px;line-height:1.7;margin-bottom:40px;}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn-z{
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:.9rem;padding:13px 28px;
-  border-radius:4px;text-decoration:none;
-  display:inline-flex;align-items:center;gap:8px;
-  transition:transform .15s,box-shadow .15s;
-  letter-spacing:.02em;
-}
+.btn-z{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;padding:13px 28px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .15s,box-shadow .15s;}
 .btn-z:hover{transform:translate(-3px,-3px)}
 .btn-z.solid{background:var(--y);color:var(--dark)}
 .btn-z.solid:hover{box-shadow:5px 5px 0 var(--r)}
 .btn-z.ghost{background:transparent;color:#fff;border:1.5px solid var(--border)}
 .btn-z.ghost:hover{box-shadow:5px 5px 0 var(--p);border-color:var(--p);color:var(--p)}
-
-.hero-stats{
-  display:flex;gap:0;
-  margin-top:60px;
-  border:1px solid var(--border);
-  border-radius:4px;
-  width:fit-content;
-  overflow:hidden;
-}
-.stat{
-  padding:16px 32px;
-  border-right:1px solid var(--border);
-  text-align:left;
-}
+.hero-stats{display:flex;gap:0;margin-top:60px;border:1px solid var(--border);border-radius:4px;width:fit-content;overflow:hidden;}
+.stat{padding:16px 32px;border-right:1px solid var(--border);}
 .stat:last-child{border-right:none}
-.stat-num{
-  font-family:'Syne',sans-serif;
-  font-size:1.8rem;font-weight:800;
-  color:#fff;line-height:1;
-  margin-bottom:2px;
-}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#fff;line-height:1;margin-bottom:2px;}
 .stat-num span{color:var(--y)}
 .stat-label{font-size:.7rem;color:var(--muted);font-family:'Space Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
-
-/* FLOATING PILL */
-.float-tag{
-  position:absolute;
-  font-family:'Space Mono',monospace;
-  font-size:.65rem;font-weight:700;
-  padding:6px 14px;border-radius:999px;
-  animation:float 4s ease-in-out infinite;
-  white-space:nowrap;
-}
-.ft1{top:22%;right:8%;background:var(--r);color:#fff;animation-delay:0s}
+.float-tag{position:absolute;font-family:'Space Mono',monospace;font-size:.65rem;font-weight:700;padding:6px 14px;border-radius:999px;animation:float 4s ease-in-out infinite;white-space:nowrap;}
+.ft1{top:22%;right:8%;background:var(--r);color:#fff;}
 .ft2{top:38%;right:14%;background:var(--b);color:var(--dark);animation-delay:.8s}
-.ft3{top:55%;right:6%;background:var(--p);color:#fff;animation-delay:1.6s}
+.ft3{top:55%;right:6%;background:var(--g);color:var(--dark);animation-delay:1.6s}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-/* SECTION HEADING */
+/* SECTIONS */
 .sec-wrap{padding:80px 40px;max-width:1280px;margin:0 auto}
-.sec-label{
-  font-family:'Space Mono',monospace;
-  font-size:.65rem;color:var(--g);
-  letter-spacing:.15em;text-transform:uppercase;
-  display:flex;align-items:center;gap:8px;
-  margin-bottom:12px;
-}
+.sec-label{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--g);letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
 .sec-label::before{content:'→';color:var(--g)}
-.sec-title{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(2rem,5vw,4rem);
-  font-weight:800;letter-spacing:-2px;
-  line-height:1;margin-bottom:48px;
-}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-2px;line-height:1;margin-bottom:48px;}
 .sec-title em{color:var(--y);font-style:normal}
 
 /* PK GRID */
-.pk-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-}
-.pk-card{
-  background:var(--card);
-  padding:28px;
-  position:relative;
-  overflow:hidden;
-  transition:background .2s;
-}
+.pk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}
+.pk-card{background:var(--card);padding:28px;position:relative;overflow:hidden;transition:background .2s;}
 .pk-card:hover{background:#161616}
 .pk-card:hover .pk-num{opacity:.15}
-.pk-num{
-  font-family:'Syne',sans-serif;
-  font-size:5rem;font-weight:800;
-  color:#fff;opacity:.04;
-  position:absolute;top:16px;right:16px;
-  line-height:1;user-select:none;
-  transition:opacity .3s;
-}
-.pk-icon{
-  font-size:1.2rem;margin-bottom:14px;
-}
-.pk-card h3{
-  font-family:'Syne',sans-serif;
-  font-size:1rem;font-weight:800;
-  color:#fff;margin-bottom:10px;
-  letter-spacing:-.02em;
-}
+.pk-num{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;color:#fff;opacity:.04;position:absolute;top:16px;right:16px;line-height:1;user-select:none;transition:opacity .3s;}
+.pk-icon{font-size:1.2rem;margin-bottom:14px;}
+.pk-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-.02em;}
 .pk-card p{font-size:.875rem;color:var(--muted);line-height:1.75}
-.pk-card p + p{margin-top:10px}
-.pk-tag{
-  display:inline-flex;margin-top:16px;
-  font-family:'Space Mono',monospace;
-  font-size:.6rem;font-weight:700;
-  padding:3px 10px;border-radius:2px;
-  letter-spacing:.05em;text-transform:uppercase;
-}
-.t-y{background:rgba(255,225,53,.15);color:var(--y)}
-.t-g{background:rgba(10,255,108,.1);color:var(--g)}
-.t-p{background:rgba(192,132,252,.15);color:var(--p)}
-.t-r{background:rgba(255,59,107,.15);color:var(--r)}
-.t-b{background:rgba(56,189,248,.15);color:var(--b)}
-
-/* HIGHLIGHT TEXT */
+.pk-card p+p{margin-top:10px}
+.pk-tag{display:inline-flex;margin-top:16px;font-family:'Space Mono',monospace;font-size:.6rem;font-weight:700;padding:3px 10px;border-radius:2px;letter-spacing:.05em;text-transform:uppercase;}
+.t-y{background:rgba(255,225,53,.15);color:var(--y)}.t-g{background:rgba(10,255,108,.1);color:var(--g)}.t-p{background:rgba(192,132,252,.15);color:var(--p)}.t-r{background:rgba(255,59,107,.15);color:var(--r)}.t-b{background:rgba(56,189,248,.15);color:var(--b)}.t-o{background:rgba(255,140,66,.15);color:var(--o)}
 .pk-card strong{color:#fff}
 .pk-card .highlight{color:var(--y);font-weight:600}
+.info-list{margin-top:12px;display:flex;flex-direction:column;gap:6px;}
+.info-list li{font-size:.82rem;color:var(--muted);list-style:none;display:flex;align-items:flex-start;gap:8px;line-height:1.55;}
+.info-list li::before{content:'▸';color:var(--g);flex-shrink:0;font-size:.7rem;margin-top:2px;}
+.pk-card--wide{grid-column:1/-1}
 
-/* INFO LIST */
-.info-list{
-  margin-top:12px;
-  display:flex;flex-direction:column;gap:6px;
-}
-.info-list li{
-  font-size:.82rem;color:var(--muted);
-  list-style:none;
-  display:flex;align-items:flex-start;gap:8px;
-  line-height:1.55;
-}
-.info-list li::before{
-  content:'▸';color:var(--g);flex-shrink:0;font-size:.7rem;margin-top:2px;
-}
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+.price-tier{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:22px 18px;position:relative;transition:transform .2s,border-color .2s;}
+.price-tier:hover{transform:translateY(-4px);}
+.price-tier.promo{border-color:var(--r);}
+.price-tier.standar{border-color:var(--b);}
+.price-tier.premium{border-color:var(--y);}
+.tier-badge{font-family:'Space Mono',monospace;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 9px;border-radius:2px;display:inline-block;margin-bottom:10px;}
+.tier-badge.promo{background:rgba(255,59,107,.2);color:var(--r);}
+.tier-badge.standar{background:rgba(56,189,248,.15);color:var(--b);}
+.tier-badge.premium{background:rgba(255,225,53,.15);color:var(--y);}
+.tier-price{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:#fff;margin:6px 0 2px;}
+.tier-price sub{font-size:.7rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400;}
+.tier-desc{font-size:.75rem;color:var(--muted);margin-bottom:12px;line-height:1.55;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.tier-feat{list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:12px;}
+.tier-feat li{font-size:.75rem;color:#aaa;display:flex;align-items:flex-start;gap:6px;line-height:1.5;}
+.tier-feat li::before{content:'✓';color:var(--g);font-size:.65rem;flex-shrink:0;margin-top:2px;}
+.best-val{position:absolute;top:-10px;right:12px;background:var(--y);color:var(--dark);font-family:'Space Mono',monospace;font-size:.55rem;font-weight:700;padding:2px 8px;border-radius:2px;text-transform:uppercase;}
+.tier-label{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted);letter-spacing:.06em;margin-bottom:4px;}
+
+/* BRAND MOCKUP */
+.brand-showcase{display:grid;grid-template-columns:180px 1fr;gap:28px;align-items:start;margin-top:20px;}
+.logo-box{background:linear-gradient(135deg,#0d1a2e,#0a1520);border:2px solid var(--y);border-radius:16px;width:160px;height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
+.logo-box-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--y);letter-spacing:-.02em;}
+.logo-box-sub{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--b);letter-spacing:.1em;}
+.logo-box-dot{width:6px;height:6px;border-radius:50%;background:var(--g);margin:4px auto 0;}
+.app-mockup{background:#070714;border:1px solid #1a1a3a;border-radius:10px;overflow:hidden;}
+.app-bar{background:#0f0f28;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #1a1a3a;}
+.app-dot{width:8px;height:8px;border-radius:50%;}
+.app-title{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;color:var(--y);margin-left:6px;}
+.app-menu{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:#1a1a3a;border-bottom:1px solid #1a1a3a;}
+.app-menu-item{background:#0f0f28;padding:10px 6px;text-align:center;cursor:pointer;transition:background .2s;}
+.app-menu-item:hover{background:#1a1a4a;}
+.app-menu-icon{font-size:.9rem;}
+.app-menu-label{font-size:.5rem;color:#888;font-family:'Space Mono',monospace;text-transform:uppercase;margin-top:2px;}
+.app-content{padding:14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.app-stat{background:#0f0f28;border:1px solid #1a1a3a;border-radius:6px;padding:10px 12px;}
+.app-stat-num{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;color:var(--y);}
+.app-stat-lbl{font-size:.55rem;color:var(--muted);font-family:'Space Mono',monospace;text-transform:uppercase;margin-top:2px;}
+.app-txn-list{padding:0 14px 14px;}
+.app-txn-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #0f0f1a;font-size:.72rem;}
+.app-txn-name{color:#aaa;}
+.app-txn-amt{font-family:'Space Mono',monospace;color:var(--g);}
+.palet{display:flex;gap:6px;margin-top:12px;}
+.palet-dot{width:20px;height:20px;border-radius:4px;border:1px solid #333;}
+
+/* FEATURES */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:16px;}
+.feat-item{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:16px 14px;transition:border-color .2s;}
+.feat-item:hover{border-color:var(--y);}
+.feat-icon{font-size:1.2rem;margin-bottom:8px;}
+.feat-name{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;color:#fff;margin-bottom:5px;}
+.feat-desc{font-size:.75rem;color:var(--muted);line-height:1.6;}
 
 /* USE CASE */
-.pk-card--wide{grid-column:1 / -1}
-.uc-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
-.uc-tab{
-  font-family:'Space Mono',monospace;
-  font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-  padding:7px 16px;border-radius:3px;
-  border:1px solid var(--border);
-  background:transparent;color:var(--muted);
-  cursor:pointer;transition:all .15s;
-}
-.uc-tab:hover,.uc-tab.active{
-  background:var(--y);color:var(--dark);border-color:var(--y);
-}
-.uc-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
-.uc-item{
-  background:#0d0d0d;border:1px solid var(--border);
-  border-radius:3px;padding:10px 12px;
-  font-size:.82rem;color:#aaa;
-  display:flex;align-items:flex-start;gap:8px;
-  transition:border-color .15s,color .15s;
-}
-.uc-item:hover{border-color:var(--y);color:#fff}
-.uc-dot{width:6px;height:6px;border-radius:50%;background:var(--g);flex-shrink:0;margin-top:5px}
-.uc-dot.ext{background:var(--border)}
-.uc-badge{
-  margin-left:auto;flex-shrink:0;
-  background:rgba(192,132,252,.15);color:var(--p);
-  border-radius:2px;padding:1px 5px;font-size:.65rem;
-  font-family:'Space Mono',monospace;white-space:nowrap;
-}
+.uc-diagram{background:#05050f;border:1px solid #1a1a3a;border-radius:8px;padding:24px;margin-top:16px;overflow-x:auto;}
+.uc-inner{min-width:680px;}
+.uc-actors{display:flex;justify-content:space-around;margin-bottom:20px;}
+.uc-actor{text-align:center;}
+.uc-actor-circle{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin:0 auto 6px;border:2px solid;}
+.uc-actor-lbl{font-family:'Space Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;}
+.uc-system{border:1.5px dashed #2a2a5a;border-radius:8px;padding:16px;position:relative;}
+.uc-sys-lbl{position:absolute;top:-10px;left:16px;background:#05050f;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--p);padding:0 8px;text-transform:uppercase;letter-spacing:.08em;}
+.uc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.uc-bubble{background:#0f0f2a;border:1px solid #2a2a5a;border-radius:18px;padding:7px 8px;text-align:center;font-size:.68rem;color:#bbb;line-height:1.3;transition:all .2s;cursor:default;}
+.uc-bubble:hover{color:var(--y);border-color:var(--y);}
+.uc-bubble.k{border-color:rgba(56,189,248,.35);}
+.uc-bubble.a{border-color:rgba(192,132,252,.35);}
+.uc-bubble.o{border-color:rgba(255,225,53,.35);}
+.uc-bubble.c{border-color:rgba(10,255,108,.35);}
+.uc-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;justify-content:center;}
+.uc-leg{display:flex;align-items:center;gap:5px;font-size:.63rem;font-family:'Space Mono',monospace;color:var(--muted);}
+.uc-leg-dot{width:8px;height:8px;border-radius:50%;}
 
-.use-case-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 24px;
-  margin-bottom: 32px;
-  width: 100%;
-  max-width: 700px;
-  height: auto;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: #fff;
-  padding: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:16px;}
+.testi-card{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:16px;}
+.testi-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.testi-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;border:2px solid;}
+.testi-name{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;color:#fff;}
+.testi-org{font-size:.65rem;color:var(--muted);font-family:'Space Mono',monospace;}
+.testi-stars{color:var(--y);font-size:.7rem;margin-bottom:7px;letter-spacing:1px;}
+.testi-q{font-size:.78rem;color:#999;line-height:1.6;font-style:italic;}
+.testi-verified{font-family:'Space Mono',monospace;font-size:.55rem;color:var(--g);margin-top:8px;letter-spacing:.05em;}
 
-/* PRODUCTS DARK BAND */
-.products-band{
-  background:var(--dark);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding:80px 40px;
-}
-.products-inner{max-width:1280px;margin:0 auto}
-.prod-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  margin-top:48px;
-}
-.prod-card{
-  background:#080808;
-  padding:22px;
-  transition:background .2s;
-  position:relative;overflow:hidden;
-}
-.prod-card::after{
-  content:'';
-  position:absolute;top:0;left:0;right:0;height:2px;
-  background:var(--y);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .3s;
-}
-.prod-card:hover{background:#0f0f0f}
-.prod-card:hover::after{transform:scaleX(1)}
-.prod-cat{
-  font-family:'Space Mono',monospace;
-  font-size:.6rem;font-weight:700;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--g);
-  margin-bottom:8px;
-}
-.prod-name{
-  font-family:'Syne',sans-serif;
-  font-size:.95rem;font-weight:800;
-  color:#fff;margin-bottom:8px;
-}
-.prod-desc{font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:14px}
-.prod-price{
-  font-family:'Space Mono',monospace;
-  font-size:.9rem;font-weight:700;color:var(--y);
-}
+/* TARGET */
+.ta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin-top:16px;}
+.ta-card{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:16px 14px;text-align:center;transition:border-color .2s;}
+.ta-card:hover{border-color:var(--g);}
+.ta-em{font-size:2rem;margin-bottom:8px;}
+.ta-name{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;color:#fff;margin-bottom:6px;}
+.ta-desc{font-size:.72rem;color:var(--muted);line-height:1.55;}
 
-/* CTA BLOCK */
-.cta-block{
-  padding:80px 40px;
-  max-width:1280px;margin:0 auto;
-}
-.cta-inner{
-  border:1px solid var(--border);
-  background:var(--card);
-  border-radius:8px;
-  padding:60px 48px;
-  display:grid;grid-template-columns:1fr auto;
-  align-items:center;gap:40px;
-  position:relative;overflow:hidden;
-}
-.cta-inner::before{
-  content:'LETS GO';
-  font-family:'Syne',sans-serif;
-  font-size:10rem;font-weight:800;
-  color:rgba(255,225,53,.03);
-  position:absolute;right:-20px;top:50%;
-  transform:translateY(-50%);
-  white-space:nowrap;pointer-events:none;
-  letter-spacing:-4px;
-}
-.cta-inner h2{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(1.8rem,4vw,3.5rem);
-  font-weight:800;line-height:1;
-  letter-spacing:-2px;
-  margin-bottom:12px;
-}
+/* COMPETITOR TABLE */
+.comp-wrap{overflow-x:auto;margin-top:16px;}
+.comp-table{width:100%;border-collapse:collapse;font-size:.78rem;}
+.comp-table th{font-family:'Space Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--border);text-align:left;}
+.comp-table td{padding:10px 14px;border-bottom:1px solid #111;color:#aaa;vertical-align:middle;}
+.comp-table tr:hover td{background:#0a0a0a;}
+.aulia-td{color:#fff;font-weight:600;}
+.win{color:var(--g);}
+.neu{color:#666;}
+.comp-brand{font-family:'Syne',sans-serif;font-weight:800;font-size:.85rem;color:#fff;}
+
+/* COMPLEMENTARY */
+.compl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:16px;}
+.compl-card{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:16px;transition:border-color .2s;}
+.compl-card:hover{border-color:var(--o);}
+.compl-img{width:100%;height:80px;object-fit:contain;border-radius:4px;margin-bottom:10px;background:#111;padding:4px;}
+.compl-name{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;color:#fff;margin-bottom:4px;}
+.compl-desc{font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:10px;}
+.compl-price{font-family:'Space Mono',monospace;font-size:.8rem;font-weight:700;color:var(--o);}
+
+/* ROADMAP */
+.rm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:16px;}
+.rm-col{background:var(--card);padding:22px;}
+.rm-head{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.rm-tier-badge{font-family:'Space Mono',monospace;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 8px;border-radius:2px;display:inline-block;margin-bottom:8px;}
+.rm-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;color:#fff;}
+.rm-price{font-family:'Space Mono',monospace;font-size:.8rem;color:var(--y);margin-top:4px;}
+.rm-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.rm-list li{font-size:.77rem;color:#aaa;display:flex;align-items:flex-start;gap:7px;line-height:1.5;}
+.rm-list li::before{content:'◆';font-size:.45rem;color:var(--g);flex-shrink:0;margin-top:4px;}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:8px;margin-top:16px;}
+.faq-item{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.faq-q{padding:14px 18px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:800;color:#fff;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s;}
+.faq-q:hover{background:#111;}
+.faq-arrow{color:var(--y);font-size:.85rem;transition:transform .25s;flex-shrink:0;}
+.faq-a{padding:0 18px;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:.82rem;color:var(--muted);line-height:1.75;}
+.faq-item.open .faq-a{max-height:400px;padding:12px 18px 18px;}
+.faq-item.open .faq-arrow{transform:rotate(90deg);}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:16px;}
+.proc-card{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:18px;position:relative;}
+.proc-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(255,225,53,.06);position:absolute;top:8px;right:12px;line-height:1;}
+.proc-icon{font-size:1.1rem;margin-bottom:8px;}
+.proc-title{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;color:#fff;margin-bottom:6px;}
+.proc-desc{font-size:.78rem;color:var(--muted);line-height:1.65;}
+
+/* CUSTOM */
+.custom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:16px;}
+.custom-card{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:16px;transition:border-color .2s;}
+.custom-card:hover{border-color:var(--p);}
+.custom-icon{font-size:1.2rem;margin-bottom:8px;}
+.custom-title{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;color:#fff;margin-bottom:6px;}
+.custom-desc{font-size:.75rem;color:var(--muted);line-height:1.6;}
+.custom-note{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--p);margin-top:8px;}
+
+/* MITRA BAND */
+.mitra-band{background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px 40px;}
+.mitra-inner{max-width:1280px;margin:0 auto;}
+.mitra-logos{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:28px;}
+.mitra-pill{background:#111;border:1px solid var(--border);border-radius:6px;padding:10px 20px;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;color:#999;letter-spacing:-.02em;transition:border-color .2s,color .2s;}
+.mitra-pill:hover{border-color:var(--y);color:#fff;}
+
+/* CTA */
+.cta-block{padding:80px 40px;max-width:1280px;margin:0 auto;}
+.cta-inner{border:1px solid var(--border);background:var(--card);border-radius:8px;padding:60px 48px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px;position:relative;overflow:hidden;}
+.cta-inner::before{content:'MULAI';font-family:'Syne',sans-serif;font-size:10rem;font-weight:800;color:rgba(255,225,53,.03);position:absolute;right:-20px;top:50%;transform:translateY(-50%);white-space:nowrap;pointer-events:none;}
+.cta-inner h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,3.5rem);font-weight:800;line-height:1;letter-spacing:-2px;margin-bottom:12px;}
 .cta-inner h2 em{color:var(--y);font-style:normal}
 .cta-inner p{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:420px}
-.cta-wa{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--g);color:var(--dark);
-  padding:14px 28px;border-radius:4px;
-  font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;
-  text-decoration:none;white-space:nowrap;
-  transition:transform .15s,box-shadow .15s;
-}
+.cta-wa{display:inline-flex;align-items:center;gap:10px;background:var(--g);color:var(--dark);padding:14px 28px;border-radius:4px;font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;text-decoration:none;white-space:nowrap;transition:transform .15s,box-shadow .15s;}
 .cta-wa:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--y)}
 
-/* FOOTER */
-footer{
-  border-top:1px solid var(--border);
-  padding:28px 40px;
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:12px;
-}
-.footer-logo{
-  font-family:'Syne',sans-serif;
-  font-size:1rem;font-weight:800;color:#fff;
-  text-decoration:none;
-}
-footer p{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted);letter-spacing:.05em}
+footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:#fff;text-decoration:none;}
+footer p{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted);}
 footer a{color:var(--y);text-decoration:none}
-
-/* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
 .reveal.on{opacity:1;transform:none}
+.sec-sub-label{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--b);text-transform:uppercase;letter-spacing:.1em;margin-top:20px;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.sec-sub-label::before{content:'⬡';color:var(--b);}
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav{padding:14px 20px}
-  .hero{padding:120px 20px 80px}
-  .hero h1{letter-spacing:-1px}
-  .hero-stats{flex-direction:column;width:100%}
-  .stat{border-right:none;border-bottom:1px solid var(--border)}
-  .stat:last-child{border-bottom:none}
-  .float-tag{display:none}
-  .sec-wrap,.products-band,.cta-block{padding:60px 20px}
-  .cta-inner{grid-template-columns:1fr;text-align:center}
-  footer{padding:24px 20px;text-align:center;justify-content:center}
-  nav .nav-tag{display:none}
-}
+@media(max-width:900px){.pricing-grid,.rm-grid{grid-template-columns:1fr;}.uc-grid{grid-template-columns:repeat(2,1fr);}.brand-showcase{grid-template-columns:1fr;}}
+@media(max-width:768px){nav{padding:14px 20px}.hero{padding:120px 20px 80px}.hero h1{letter-spacing:-1px}.hero-stats{flex-direction:column;width:100%}.stat{border-right:none;border-bottom:1px solid var(--border)}.stat:last-child{border-bottom:none}.float-tag{display:none}.sec-wrap,.cta-block{padding:60px 20px}.cta-inner{grid-template-columns:1fr;text-align:center}footer{padding:24px 20px;text-align:center;justify-content:center}nav .nav-tag{display:none}}
 </style>
 </head>
 <body>
-
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="ring"></div>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">
-    <div class="dot"></div>
-    AuliaSoft
-  </div>
-  <div class="nav-pill">
-    <span class="nav-tag">v2.0 — 2026</span>
+  <div class="nav-logo"><div class="dot"></div>AuliaSoft</div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span class="nav-tag">e-POS — auliasoft.com</span>
     <a href="https://wa.me/6281241945881" class="nav-cta" target="_blank">Chat → WA</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid-bg"></div>
-
-  <span class="float-tag ft1">KOPERASI ✓</span>
-  <span class="float-tag ft2">UMKM READY</span>
-  <span class="float-tag ft3">24/7 SUPPORT</span>
-
-  <div class="hero-eyebrow">Solusi Digital Indonesia</div>
-
+  <span class="float-tag ft1">KASIR ONLINE ✓</span>
+  <span class="float-tag ft2">50+ JENIS TOKO</span>
+  <span class="float-tag ft3">2000+ PENGGUNA</span>
+  <div class="hero-eyebrow">AuliaSoft Digital — auliasoft.com</div>
   <h1>
-    Bisnis Kamu
-    <em class="line2">Tidak Perlu</em>
-    <span class="line3">Rumit Lagi</span>
+    Jalankan Bisnis
+    <em class="line2">Tanpa Ribet</em>
+    <span class="line3">dengan e-POS</span>
   </h1>
-
-  <p class="hero-sub">Aplikasi manajemen bisnis all-in-one untuk Koperasi, UMKM, BUMDes, Mini Bank, dan LAZIS — langsung berjalan, tanpa hambatan berarti.</p>
-
+  <p class="hero-sub">Aplikasi kasir online berbasis web untuk semua jenis usaha — toko, warung, minimarket, kafe, dan lebih dari 50 jenis bisnis lainnya. Urus transaksi sampai laporan, tinggal klik saja.</p>
   <div class="hero-actions">
-    <a href="https://www.auliasoft.com" class="btn-z solid" target="_blank">Jelajahi Produk ↗</a>
+    <a href="https://www.auliasoft.com/produk/aplikasi-toko-online" class="btn-z solid" target="_blank">Lihat Produk ↗</a>
     <a href="https://wa.me/6281241945881" class="btn-z ghost" target="_blank">Konsultasi Gratis</a>
   </div>
-
   <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">1.5<span>+</span></div>
-      <div class="stat-label">Tahun Garansi</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">24<span>/7</span></div>
-      <div class="stat-label">Support Online</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">10<span>+</span></div>
-      <div class="stat-label">Kategori Produk</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">100<span>+</span></div>
-      <div class="stat-label">Mitra Usaha</div>
-    </div>
+    <div class="stat"><div class="stat-num">Rp 50<span>rb</span></div><div class="stat-label">Mulai dari</div></div>
+    <div class="stat"><div class="stat-num">2000<span>+</span></div><div class="stat-label">Pengguna Aktif</div></div>
+    <div class="stat"><div class="stat-num">53<span>★</span></div><div class="stat-label">Testimoni 5.0</div></div>
+    <div class="stat"><div class="stat-num">1.5<span>thn</span></div><div class="stat-label">Garansi Resmi</div></div>
   </div>
-
   <div class="marquee-wrap">
     <div class="marquee-inner">
-      KOPERASI KSP &nbsp;·&nbsp; UMKM &nbsp;·&nbsp; BUMDES &nbsp;·&nbsp; MINI BANK &nbsp;·&nbsp; LAZIS &nbsp;·&nbsp; TOKO SEMBAKO &nbsp;·&nbsp; MINI MARKET &nbsp;·&nbsp; TOKO OPTIK &nbsp;·&nbsp; COUNTER HP &nbsp;·&nbsp; KSPPS BMT &nbsp;·&nbsp;
-      KOPERASI KSP &nbsp;·&nbsp; UMKM &nbsp;·&nbsp; BUMDES &nbsp;·&nbsp; MINI BANK &nbsp;·&nbsp; LAZIS &nbsp;·&nbsp; TOKO SEMBAKO &nbsp;·&nbsp; MINI MARKET &nbsp;·&nbsp; TOKO OPTIK &nbsp;·&nbsp; COUNTER HP &nbsp;·&nbsp; KSPPS BMT &nbsp;·&nbsp;
+      KASIR ONLINE &nbsp;·&nbsp; TOKO ONLINE &nbsp;·&nbsp; MANAJEMEN INVENTORI &nbsp;·&nbsp; CRM PELANGGAN &nbsp;·&nbsp; LAPORAN LENGKAP &nbsp;·&nbsp; MULTI OUTLET &nbsp;·&nbsp; QRIS DYNAMIC &nbsp;·&nbsp; AKUNTANSI &nbsp;·&nbsp; PAYROLL &nbsp;·&nbsp; ABSENSI FOTO &nbsp;·&nbsp;
+      KASIR ONLINE &nbsp;·&nbsp; TOKO ONLINE &nbsp;·&nbsp; MANAJEMEN INVENTORI &nbsp;·&nbsp; CRM PELANGGAN &nbsp;·&nbsp; LAPORAN LENGKAP &nbsp;·&nbsp; MULTI OUTLET &nbsp;·&nbsp; QRIS DYNAMIC &nbsp;·&nbsp; AKUNTANSI &nbsp;·&nbsp; PAYROLL &nbsp;·&nbsp; ABSENSI FOTO &nbsp;·&nbsp;
     </div>
   </div>
 </section>
@@ -542,283 +310,672 @@ footer a{color:var(--y);text-decoration:none}
 <div class="sec-wrap">
   <div class="reveal">
     <div class="sec-label">Product Knowledge</div>
-    <div class="sec-title">12 Hal yang Wajib<br/>Kamu Ketahui tentang <em>AuliaSoft</em></div>
+    <div class="sec-title">12 Hal yang Wajib<br/>Kamu Tahu tentang <em>Aulia e-POS</em></div>
   </div>
 
   <div class="pk-grid reveal">
 
-    <!-- 01 PRICING -->
-    <div class="pk-card">
-      <div class="pk-num">01</div>
+    <!-- A. PRICING -->
+    <div class="pk-card pk-card--wide">
+      <div class="pk-num">A</div>
       <div class="pk-icon">💸</div>
-      <h3>Harga Terjangkau, Nilai Maksimal</h3>
-      <p>AuliaSoft hadir dengan harga yang sangat kompetitif, dimulai dari <strong>Rp 1.500.000</strong> untuk satu lisensi aplikasi bisnis lengkap. Tidak ada biaya berlangganan bulanan yang membebani, tidak ada biaya tersembunyi yang mengejutkan.</p>
-      <p>Dengan skema <span class="highlight">bayar sekali, gunakan selamanya</span>, investasi kamu terlindungi jangka panjang. Bandingkan dengan solusi serupa di pasaran yang mengenakan biaya ratusan ribu hingga jutaan rupiah per bulan — AuliaSoft jauh lebih hemat dan menguntungkan untuk usaha skala kecil hingga menengah.</p>
-      <ul class="info-list">
-        <li>Harga mulai Rp 1.500.000 (lisensi permanen)</li>
-        <li>Tidak ada biaya berlangganan bulanan</li>
-        <li>Tidak ada biaya per-pengguna tambahan</li>
-        <li>Garansi resmi selama 1,5 tahun termasuk dalam harga</li>
-      </ul>
+      <h3>Harga & Paket — Aplikasi Kasir Aulia e-POS Online</h3>
+      <p>Aulia e-POS (Aplikasi Toko UMKM E-POS) tersedia dalam tiga versi yang dirancang bertahap sesuai skala dan kebutuhan usaha. Mulai dari paket <span class="highlight">Basic Rp 149.999</span>, paket Standar, hingga paket Premium yang lengkap dengan payroll dan omnichannel marketplace.</p>
+      <div class="pricing-grid">
+        <div class="price-tier promo">
+          <div class="tier-label">Versi</div>
+          <div class="tier-badge promo">Basic</div>
+          <div class="tier-price">Rp 149.999 <sub>/bulan</sub></div>
+          <div class="tier-desc">Untuk semua jenis usaha. Kelola operasional dan penjualan secara lengkap dalam satu aplikasi kasir online.</div>
+          <ul class="tier-feat">
+            <li>Single Outlet</li>
+            <li>Toko Online terintegrasi</li>
+            <li>Aplikasi Kasir Online</li>
+            <li>Manajemen Inventori</li>
+            <li>CRM Pelanggan</li>
+            <li>Laporan Lengkap</li>
+            <li>Manajemen Karyawan</li>
+            <li>Pencatatan Keuangan (Invoice, SO, DO)</li>
+            <li>Digital Payment (QRIS)</li>
+          </ul>
+        </div>
+        <div class="price-tier standar">
+          <div class="tier-label">Versi</div>
+          <div class="tier-badge standar">Standard</div>
+          <div class="tier-price">Rp 349.999 <sub>/bulan</sub></div>
+          <div class="tier-desc">Untuk semua jenis usaha. Kelola operasional, penjualan dan keuangan secara lengkap dan terstruktur.</div>
+          <ul class="tier-feat">
+            <li>Multi Outlet</li>
+            <li>Toko Online terintegrasi</li>
+            <li>Kasir Online (atur meja, multisatuan)</li>
+            <li>Inventori: COGS average, produksi stok, transfer stok antar outlet</li>
+            <li>CRM (deposit pelanggan)</li>
+            <li>Laporan + Analisa Bisnis</li>
+            <li>Karyawan (absensi foto, otorisasi advance)</li>
+            <li>Akuntansi Lengkap (Faktur, CoA, Auto Posting)</li>
+            <li>QRIS Dynamic, EDC, Struk Digital (WA/SMS/Email)</li>
+            <li>Aplikasi Owner & Order Online</li>
+          </ul>
+        </div>
+        <div class="price-tier premium">
+          <div class="best-val">Terlengkap</div>
+          <div class="tier-label">Versi</div>
+          <div class="tier-badge premium">⭐ Premium</div>
+          <div class="tier-price">Rp 749.999 <sub>/bulan</sub></div>
+          <div class="tier-desc">Untuk semua jenis usaha. Automasi operasional, penjualan, keuangan, karyawan dan penggajian secara lengkap.</div>
+          <ul class="tier-feat">
+            <li>Multi Outlet</li>
+            <li>Toko Online (Website, Webtree, Weborder, Shopee, Tokopedia, Grabmart, Omnichannel)</li>
+            <li>Kasir Online (atur meja, reservasi, serial number, batch number, grosir)</li>
+            <li>Inventori (serial number, batch number, permintaan barang, pengiriman pembelian)</li>
+            <li>Manajemen Karyawan + Payroll (shift, struktur gaji, penggajian, transfer gaji)</li>
+            <li>Akuntansi Lengkap (Faktur, CoA, Auto Posting, Laporan Akuntansi)</li>
+            <li>QRIS Dynamic, EDC, Struk Digital (WA/SMS/Email)</li>
+            <li>Aulia Teams (absensi foto geolokasi, ePayslip, broadcast pengumuman)</li>
+            <li>Order Online (Weborder, QR Emenu, Grabfood, Gofood)</li>
+            <li>Aplikasi Owner</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:.8rem;color:var(--muted);">📌 Tersedia juga <strong style="color:#fff;">Aplikasi Warung Cafe A-WARUNG</strong> dan <strong style="color:#fff;">Aplikasi Toko UMKM A-POS</strong> mulai dari <span class="highlight">Rp 50.000</span>. Rekening pembayaran: BRI <strong style="color:#fff;">789001005408534</strong> a/n PT Mitra Aulia Indonesia.</p>
       <span class="pk-tag t-y">Pricing</span>
     </div>
 
-    <!-- 02 FAQ -->
-    <div class="pk-card">
-      <div class="pk-num">02</div>
-      <div class="pk-icon">🙋</div>
-      <h3>Pertanyaan Umum & Jawabannya</h3>
-      <p>Banyak calon pengguna bertanya hal yang sama sebelum memutuskan menggunakan AuliaSoft. Berikut jawaban lugas dari pertanyaan yang paling sering muncul:</p>
-      <ul class="info-list">
-        <li><strong>Apakah perlu server khusus?</strong> — Tidak. Sistem kami berjalan secara hybrid, baik secara online maupun offline tanpa infrastruktur server yang rumit.</li>
-        <li><strong>Apakah bisa digunakan tanpa internet?</strong> — Ya, mode offline tersedia dan data akan tersinkronisasi otomatis saat koneksi tersedia.</li>
-        <li><strong>Apakah tersedia demo gratis?</strong> — Tentu saja. Hubungi tim kami untuk sesi demonstrasi langsung tanpa biaya.</li>
-        <li><strong>Bagaimana cara pembayaran?</strong> — Transfer ke rekening BRI <strong>789001005408534</strong> atas nama <strong>PT Mitra Aulia Indonesia</strong>.</li>
-        <li><strong>Apakah ada panduan penggunaan?</strong> — Ya, termasuk pelatihan onboarding setelah instalasi.</li>
-      </ul>
-      <span class="pk-tag t-g">FAQs</span>
-    </div>
-
-    <!-- 03 BRAND -->
-    <div class="pk-card">
-      <div class="pk-num">03</div>
-      <div class="pk-icon">🏢</div>
-      <h3>PT AuliaSoft — Perusahaan Teknologi Terpercaya</h3>
-      <p>AuliaSoft bukan sekadar startup baru. Kami adalah perusahaan teknologi Indonesia yang telah membangun rekam jejak nyata di industri digitalisasi koperasi dan UMKM nasional.</p>
-      <p>Sebagai <span class="highlight">mitra resmi Kementerian Koperasi RI</span>, kami telah mendapatkan kepercayaan dari lembaga pemerintah tertinggi di bidang perkoperasian. Selain itu, AuliaSoft juga tergabung dalam ekosistem digital mitra strategis seperti <strong>Onecoop, Gantari,</strong> dan <strong>Cooplink</strong>.</p>
-      <ul class="info-list">
-        <li>Badan hukum resmi PT Mitra Aulia Indonesia</li>
-        <li>Mitra resmi Kementerian Koperasi RI</li>
-        <li>Bergabung dalam ekosistem Onecoop & Cooplink</li>
-        <li>Tim pengembang berpengalaman di industri keuangan mikro</li>
-        <li>Berkomitmen pada kepatuhan regulasi koperasi nasional</li>
-      </ul>
+    <!-- B. BRAND -->
+    <div class="pk-card pk-card--wide">
+      <div class="pk-num">B</div>
+      <div class="pk-icon">🏷️</div>
+      <h3>Brand — Logo & Tampilan Aplikasi Kasir Aulia e-POS</h3>
+      <p>AuliaSoft Digital adalah <span class="highlight">software akuntansi hybrid</span> — perpaduan aplikasi desktop dan cloud sistem. Tagline resmi: <strong>"Jalankan Bisnis Tanpa Ribet dengan AuliaSoft Digital."</strong> Identitas brand mencerminkan profesionalisme, keterjangkauan, dan kemudahan bagi pelaku UMKM Indonesia.</p>
+      <div class="brand-showcase">
+        <div>
+          <div class="logo-box">
+            <div style="font-size:.55rem;font-family:'Space Mono',monospace;color:#555;letter-spacing:.1em;margin-bottom:4px;">AULIASOFT DIGITAL</div>
+            <div class="logo-box-name">e-POS</div>
+            <div class="logo-box-sub">APLIKASI KASIR ONLINE</div>
+            <div class="logo-box-dot"></div>
+          </div>
+          <div class="palet">
+            <div class="palet-dot" style="background:#FFE135;" title="Kuning — Utama"></div>
+            <div class="palet-dot" style="background:#0AFF6C;" title="Hijau — Aksen"></div>
+            <div class="palet-dot" style="background:#38BDF8;" title="Biru — Info"></div>
+            <div class="palet-dot" style="background:#0A0A0A;" title="Hitam — Background"></div>
+            <div class="palet-dot" style="background:#fff;" title="Putih — Teks"></div>
+          </div>
+          <p style="font-size:.62rem;color:var(--muted);font-family:'Space Mono',monospace;margin-top:6px;letter-spacing:.04em;">Palet Warna Brand</p>
+          <p style="font-size:.62rem;color:var(--muted);font-family:'Space Mono',monospace;margin-top:10px;">Logo resmi tersedia di:<br/><a href="https://www.auliasoft.com" style="color:var(--y);">www.auliasoft.com</a></p>
+        </div>
+        <div>
+          <div class="app-mockup">
+            <div class="app-bar">
+              <div class="app-dot" style="background:#ff5f56;"></div>
+              <div class="app-dot" style="background:#ffbd2e;"></div>
+              <div class="app-dot" style="background:#27c93f;"></div>
+              <span class="app-title">Aulia e-POS — Dashboard Utama</span>
+            </div>
+            <div class="app-menu">
+              <div class="app-menu-item"><div class="app-menu-icon">🛒</div><div class="app-menu-label">Kasir</div></div>
+              <div class="app-menu-item"><div class="app-menu-icon">📦</div><div class="app-menu-label">Inventori</div></div>
+              <div class="app-menu-item"><div class="app-menu-icon">🧾</div><div class="app-menu-label">Pembelian</div></div>
+              <div class="app-menu-item"><div class="app-menu-icon">📊</div><div class="app-menu-label">Laporan</div></div>
+              <div class="app-menu-item"><div class="app-menu-icon">👥</div><div class="app-menu-label">CRM</div></div>
+              <div class="app-menu-item"><div class="app-menu-icon">⚙️</div><div class="app-menu-label">Setting</div></div>
+            </div>
+            <div class="app-content">
+              <div class="app-stat"><div class="app-stat-num">Rp 4,25jt</div><div class="app-stat-lbl">Omzet Hari Ini</div></div>
+              <div class="app-stat"><div class="app-stat-num">127</div><div class="app-stat-lbl">Transaksi</div></div>
+              <div class="app-stat"><div class="app-stat-num">48 item</div><div class="app-stat-lbl">Stok Menipis</div></div>
+            </div>
+            <div class="app-txn-list">
+              <div class="app-txn-row"><span class="app-txn-name">Indomie Goreng × 5</span><span class="app-txn-amt">+Rp 17.500</span></div>
+              <div class="app-txn-row"><span class="app-txn-name">Aqua 600ml × 3</span><span class="app-txn-amt">+Rp 12.000</span></div>
+              <div class="app-txn-row"><span class="app-txn-name">Sabun Lifebuoy</span><span class="app-txn-amt">+Rp 8.500</span></div>
+            </div>
+          </div>
+          <p style="font-size:.62rem;color:var(--muted);font-family:'Space Mono',monospace;text-align:center;margin-top:8px;">PREVIEW — Tampilan Antarmuka Aulia e-POS</p>
+        </div>
+      </div>
       <span class="pk-tag t-p">Brand</span>
     </div>
 
-    <!-- 04 ROADMAP -->
+    <!-- C. BUSINESS DOMAIN -->
     <div class="pk-card">
-      <div class="pk-num">04</div>
-      <div class="pk-icon">🗺️</div>
-      <h3>Roadmap Pengembangan Berkelanjutan</h3>
-      <p>AuliaSoft tidak berhenti berkembang. Kami memiliki peta jalan produk yang terstruktur, memastikan bahwa setiap pengguna mendapatkan manfaat dari inovasi terbaru tanpa harus berganti platform.</p>
-      <p>Sejumlah fitur besar yang sedang dan akan segera hadir antara lain:</p>
-      <ul class="info-list">
-        <li><strong>Modul Payroll Karyawan</strong> — Penggajian terintegrasi langsung dengan data transaksi usaha</li>
-        <li><strong>Core Banking System (CBS)</strong> — Kapabilitas setara perbankan untuk KSP skala besar</li>
-        <li><strong>Ekosistem Kopdes KDMP</strong> — Platform digital untuk Koperasi Desa modern</li>
-        <li><strong>Integrasi API Perbankan</strong> — Koneksi langsung ke sistem payment gateway nasional</li>
-        <li><strong>Dashboard Analitik Bisnis</strong> — Laporan berbasis data untuk pengambilan keputusan strategis</li>
-      </ul>
-      <span class="pk-tag t-b">Roadmap</span>
-    </div>
-
-    <!-- 05 BUSINESS DOMAIN -->
-    <div class="pk-card">
-      <div class="pk-num">05</div>
+      <div class="pk-num">C</div>
       <div class="pk-icon">🏪</div>
-      <h3>Segmen Bisnis yang Didukung</h3>
-      <p>AuliaSoft dirancang untuk melayani berbagai segmen usaha yang memiliki kebutuhan manajemen keuangan dan operasional yang kompleks. Setiap modul disesuaikan dengan karakteristik dan regulasi masing-masing jenis lembaga.</p>
+      <h3>Business Domain — Aplikasi Kasir Modern untuk 50+ Jenis Usaha</h3>
+      <p>Aulia e-POS adalah aplikasi kasir modern berbasis <span class="highlight">web (cloud) hybrid</span> untuk semua jenis usaha dagang, toko, dan warung di Indonesia. AuliaSoft menyediakan lebih dari 50 varian aplikasi kasir yang disesuaikan untuk setiap segmen usaha spesifik.</p>
       <ul class="info-list">
-        <li><strong>KSP / KSPPS / BMT</strong> — Koperasi simpan pinjam konvensional maupun syariah</li>
-        <li><strong>Toko & Mini Market</strong> — Sistem kasir (POS) dengan manajemen inventori lengkap</li>
-        <li><strong>BUMDes</strong> — Badan usaha milik desa dengan pelaporan keuangan transparan</li>
-        <li><strong>Mini Bank KSPPS</strong> — Layanan keuangan setara bank untuk komunitas lokal</li>
-        <li><strong>LAZIS</strong> — Pengelolaan zakat, infak, sedekah, dan wakaf secara digital</li>
-        <li><strong>LKM / LKMS</strong> — Lembaga keuangan mikro konvensional dan syariah</li>
-        <li><strong>Kopdes KDMP</strong> — Koperasi Desa dalam program Koperasi Desa Merah Putih</li>
-        <li><strong>Counter HP & Toko Optik</strong> — Usaha ritel spesialis dengan kebutuhan khusus</li>
+        <li><strong>Mini Market & Toko Sembako</strong> — Sistem POS dengan manajemen inventori dan laporan penjualan</li>
+        <li><strong>Toko Kelontong & Warung</strong> — Kasir digital dengan fitur kredit/hutang pelanggan</li>
+        <li><strong>Toko Fashion & Pakaian</strong> — Manajemen variasi produk (ukuran, warna)</li>
+        <li><strong>Warung Kopi, Kafe & Food Court</strong> — POS dengan fitur atur meja (tabel management)</li>
+        <li><strong>Counter HP & Elektronik</strong> — Device tracking dan serial number management</li>
+        <li><strong>Toko Optik</strong> — Prescription management dan riwayat pelanggan</li>
+        <li><strong>Bengkel, Salon, Laundry</strong> — Aplikasi jasa dengan manajemen servis</li>
+        <li><strong>Toko Frozen, Daging, Sayuran</strong> — Manajemen expired date dan batch number</li>
+        <li><strong>Apotek & Toko Obat</strong> — Manajemen batch, expired, dan kategori produk</li>
+        <li><strong>Toko Bangunan, Distributor, Toserba</strong> — Multi-satuan dan manajemen gudang</li>
+        <li><strong>Koperasi Konsumen & Toko Koperasi Karyawan</strong> — Terintegrasi data member koperasi</li>
+        <li><strong>Dapur MBG & Pondok Pesantren</strong> — Solusi khusus segmen komunitas</li>
       </ul>
       <span class="pk-tag t-r">Business Domain</span>
     </div>
 
-    <!-- 06 CUSTOMIZATION -->
-    <div class="pk-card">
-      <div class="pk-num">06</div>
-      <div class="pk-icon">🛠️</div>
-      <h3>Layanan Kustomisasi Sesuai Kebutuhan</h3>
-      <p>Setiap bisnis memiliki alur operasional yang unik. AuliaSoft memahami hal ini dan menyediakan layanan pengembangan kustom bagi klien yang membutuhkan fitur atau integrasi di luar paket standar yang tersedia.</p>
-      <p>Tim pengembang kami yang berpengalaman siap merancang solusi teknis yang disesuaikan secara penuh dengan kebutuhan spesifik usaha kamu, mulai dari alur persetujuan pinjaman yang kompleks hingga pelaporan regulasi khusus daerah.</p>
-      <ul class="info-list">
-        <li>Analisis kebutuhan bisnis secara mendalam</li>
-        <li>Pengembangan fitur khusus sesuai alur operasional</li>
-        <li>Integrasi dengan sistem yang sudah berjalan</li>
-        <li>Pembuatan laporan keuangan sesuai format regulasi</li>
-        <li>Pelatihan pengguna pasca-implementasi</li>
-      </ul>
-      <span class="pk-tag t-y">Customization</span>
-    </div>
-
-    <!-- 07 TARGET AUDIENCE -->
-    <div class="pk-card">
-      <div class="pk-num">07</div>
+    <!-- D. TARGET AUDIENCE & TESTIMONI -->
+    <div class="pk-card pk-card--wide">
+      <div class="pk-num">D</div>
       <div class="pk-icon">🎯</div>
-      <h3>Siapa yang Paling Tepat Menggunakan AuliaSoft?</h3>
-      <p>AuliaSoft dirancang untuk para pelaku usaha dan pengelola lembaga keuangan yang ingin bertransformasi dari sistem manual ke sistem digital yang andal, tanpa harus menjadi ahli teknologi terlebih dahulu.</p>
-      <p>Pengguna ideal kami adalah mereka yang memimpin atau mengelola operasional lembaga dan menyadari bahwa pencatatan manual sudah tidak lagi memadai untuk skala usaha yang terus berkembang.</p>
-      <ul class="info-list">
-        <li>Pengurus dan pengelola koperasi (KSP, KSPPS, BMT)</li>
-        <li>Pemilik UMKM, toko, dan usaha ritel</li>
-        <li>Direktur atau manajer BUMDes</li>
-        <li>Pengelola LAZIS dan lembaga amil zakat</li>
-        <li>Manajemen Lembaga Keuangan Mikro (LKM/LKMS)</li>
-        <li>Petugas keuangan yang ingin efisiensi laporan</li>
-      </ul>
-      <span class="pk-tag t-g">Target Audience</span>
+      <h3>Target Audience & Testimoni Klien Aulia e-POS</h3>
+      <p>Lebih dari <span class="highlight">2.000 Koperasi, UMKM, UKM, BUMDes, hingga perusahaan</span> telah bergabung menggunakan Aplikasi AuliaSoft. Dari 53 testimoni yang tercatat, seluruhnya memberikan rating bintang 5 — dengan nilai rata-rata 5.0 dari 5.</p>
+      <div class="ta-grid">
+        <div class="ta-card"><div class="ta-em">🏪</div><div class="ta-name">Pemilik Toko</div><div class="ta-desc">Ingin pantau omzet & stok dari HP tanpa harus selalu ada di toko.</div></div>
+        <div class="ta-card"><div class="ta-em">🧑‍💻</div><div class="ta-name">Kasir & Petugas</div><div class="ta-desc">Butuh antarmuka kasir yang cepat dan tidak memerlukan pelatihan IT panjang.</div></div>
+        <div class="ta-card"><div class="ta-em">🏘️</div><div class="ta-name">Pelaku UMKM</div><div class="ta-desc">Usaha kecil yang mulai berkembang dan butuh pencatatan yang lebih terstruktur.</div></div>
+        <div class="ta-card"><div class="ta-em">🏬</div><div class="ta-name">Minimarket & Toserba</div><div class="ta-desc">Butuh POS multi-kasir dengan kontrol stok ketat dan laporan harian.</div></div>
+        <div class="ta-card"><div class="ta-em">☕</div><div class="ta-name">Warung & Kafe</div><div class="ta-desc">Perlu fitur manajemen meja, menu digital, dan laporan per shift.</div></div>
+        <div class="ta-card"><div class="ta-em">🤝</div><div class="ta-name">Toko Koperasi</div><div class="ta-desc">Toko milik koperasi yang membutuhkan integrasi data anggota dan laporan keuangan.</div></div>
+      </div>
+
+      <div class="sec-sub-label" style="margin-top:24px;">★ Testimoni Verified dari auliasoft.com</div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-av" style="background:#1a1a2a;border-color:var(--b);">🏪</div>
+            <div><div class="testi-name">Toko Kopkar Kelinci Makmur</div><div class="testi-org">Toko Koperasi Karyawan</div></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-q">"Aplikasi Aulia Soft sangat membantu dan mempermudah transaksi penjualan dan pembelian di toko Kopkar Kelinci Makmur. Tim support yang selalu membantu."</div>
+          <div class="testi-verified">✓ Verified · Oktober 2025</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-av" style="background:#1a2a1a;border-color:var(--g);">🏬</div>
+            <div><div class="testi-name">Mini Market Indomak</div><div class="testi-org">Mini Market</div></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-q">"Software Auliasoft sangat baik. Membantu manajemen toko dengan mudah dan efisien."</div>
+          <div class="testi-verified">✓ Verified · Oktober 2025</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-av" style="background:#2a1a1a;border-color:var(--r);">🛍️</div>
+            <div><div class="testi-name">Toko Merdu Jaya Mart</div><div class="testi-org">Manajemen Toko</div></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-q">"Penggunaan aplikasi auliasoft sejak awal tahun 2024 untuk kegiatan management toko sangat membantu dan mudah dalam penggunaan sehari-hari."</div>
+          <div class="testi-verified">✓ Verified · Oktober 2025</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-av" style="background:#1a1a2a;border-color:var(--p);">💼</div>
+            <div><div class="testi-name">CV Lapkes Mart KKSU Syariah</div><div class="testi-org">Toko Multi-unit</div></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-q">"Menggunakan aplikasi Aulia soft sangat membantu sistem penyimpanan barang penjualan dan stock opname serta laporan penjualan yang akurat."</div>
+          <div class="testi-verified">✓ Verified · Oktober 2025</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-av" style="background:#1a2a20;border-color:var(--g);">🧴</div>
+            <div><div class="testi-name">Abdullah Parfum</div><div class="testi-org">Toko Ritel</div></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-q">"Sangat membantu dalam melakukan transaksi penjualan dan sangat membantu dalam melakukan pembukuan akhir bulan. Respon tim support cepat tanggap."</div>
+          <div class="testi-verified">✓ Verified · Oktober 2025</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-av" style="background:#251a10;border-color:var(--o);">🛒</div>
+            <div><div class="testi-name">Toko Rahmi</div><div class="testi-org">Toko Umum — Sejak 2021</div></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-q">"Saya menggunakan aplikasi AuliaSoft sejak 2021, sangat membantu manajemen toko dan akuntabilitas keuangan. Dukungan yang selalu responsif."</div>
+          <div class="testi-verified">✓ Verified · Oktober 2025</div>
+        </div>
+      </div>
+      <span class="pk-tag t-g">Target Audience + Testimoni</span>
     </div>
 
-    <!-- 08 VS KOMPETITOR -->
+    <!-- E. PRODUCT FEATURES -->
+    <div class="pk-card pk-card--wide">
+      <div class="pk-num">E</div>
+      <div class="pk-icon">⚙️</div>
+      <h3>Fitur Utama Aplikasi Kasir Aulia e-POS</h3>
+      <p>Aulia e-POS hadir dengan ekosistem fitur lengkap yang saling terintegrasi — mulai dari transaksi kasir harian hingga laporan keuangan akhir bulan dan penggajian karyawan. Tersedia lebih dari <span class="highlight">200 laporan keuangan dan operasional</span> secara instan.</p>
+      <div class="feat-grid">
+        <div class="feat-item">
+          <div class="feat-icon">🔐</div>
+          <div class="feat-name">Login & Hak Akses</div>
+          <div class="feat-desc">Sistem multi-role (kasir, admin, owner). Setiap pengguna hanya akses fitur sesuai jabatannya. Keamanan data terjamin.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🛒</div>
+          <div class="feat-name">Aplikasi Kasir Online (POS)</div>
+          <div class="feat-desc">Kasir cepat berbasis web. Atur meja, multi-satuan, grosir, reservasi, leveling komisi. Cetak struk digital via WA/SMS/Email.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">📦</div>
+          <div class="feat-name">Manajemen Inventori</div>
+          <div class="feat-desc">COGS average, fitur produksi stok, transfer stok antar outlet. Serial number & batch number. Peringatan stok menipis otomatis.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🏭</div>
+          <div class="feat-name">Modul Pembelian</div>
+          <div class="feat-desc">Purchase Order (PO) ke supplier, penerimaan barang, permintaan barang antar gudang. Riwayat pembelian per supplier tersimpan rapi.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🔄</div>
+          <div class="feat-name">Stok Opname</div>
+          <div class="feat-desc">Penghitungan fisik stok berkala. Deteksi selisih stok sistem vs fisik. Rekonsiliasi dan laporan hasil opname otomatis.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">📋</div>
+          <div class="feat-name">Laporan Stok</div>
+          <div class="feat-desc">Mutasi stok masuk-keluar, nilai inventori aktif, laporan produk expired, dan produk terlaris. Ekspor Excel/PDF.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">📈</div>
+          <div class="feat-name">Laporan Pembelian</div>
+          <div class="feat-desc">Rekap pengeluaran per supplier, per periode, per kategori. Analisis HPP dan efisiensi pengadaan stok.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">📊</div>
+          <div class="feat-name">Laporan Penjualan</div>
+          <div class="feat-desc">Omzet harian, bulanan, per kasir, per produk. Analisa bisnis mendalam. Performa outlet untuk multi-cabang.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">💰</div>
+          <div class="feat-name">Laporan Keuangan</div>
+          <div class="feat-desc">Laba/Rugi, Neraca, Arus Kas, Buku Besar, Histori Bank, Laporan Pajak. Akuntansi lengkap dengan CoA dan Auto Posting.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">👥</div>
+          <div class="feat-name">CRM Pelanggan</div>
+          <div class="feat-desc">Database pelanggan, deposit pelanggan, program poin loyalitas. Riwayat transaksi per pelanggan untuk layanan personal.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">💳</div>
+          <div class="feat-name">Digital Payment</div>
+          <div class="feat-desc">QRIS Dynamic, EDC kartu debit/kredit, transfer bank. Struk digital via WhatsApp, SMS, dan Email otomatis.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🌐</div>
+          <div class="feat-name">Toko Online & Omnichannel</div>
+          <div class="feat-desc">Website toko, Weborder, QR Emenu, integrasi Shopee/Tokopedia/Grabmart/Gofood. Multi-akun marketplace Omnichannel (Premium).</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">👔</div>
+          <div class="feat-name">Manajemen Karyawan & Payroll</div>
+          <div class="feat-desc">Absensi foto geolokasi, shift management, struktur gaji, penggajian, transfer gaji. ePayslip dan broadcast pengumuman (Aulia Teams).</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">📱</div>
+          <div class="feat-name">Aplikasi Owner</div>
+          <div class="feat-desc">Dashboard khusus pemilik untuk memantau performa bisnis dari smartphone — tanpa perlu membuka komputer kasir.</div>
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:.82rem;color:var(--muted);">📌 Tersedia lebih dari <strong style="color:#fff;">200+ laporan</strong> keuangan dan operasional secara instan — Laba/Rugi, Neraca, Arus Kas, Buku Besar, Histori Bank, Penjualan, Pembelian, Laporan Pajak, dan masih banyak lagi.</p>
+      <span class="pk-tag t-b">Product Features</span>
+    </div>
+
+    <!-- F. USE CASE DIAGRAM -->
+    <div class="pk-card pk-card--wide">
+      <div class="pk-num">F</div>
+      <div class="pk-icon">🗂️</div>
+      <h3>Diagram Use Case — Sistem Aulia e-POS</h3>
+      <p>Sistem Aulia e-POS menggunakan pendekatan <span class="highlight">role-based access control</span> dengan empat aktor utama. Setiap aktor memiliki hak akses berbeda, namun semua terhubung dalam satu platform terintegrasi. Diagram di bawah merefleksikan fitur aktual yang tersedia di aplikasi.</p>
+      <div class="uc-diagram">
+        <div class="uc-inner">
+          <div class="uc-actors">
+            <div class="uc-actor">
+              <div class="uc-actor-circle" style="border-color:var(--b);background:rgba(56,189,248,.1);">🧑‍💼</div>
+              <div class="uc-actor-lbl" style="color:var(--b);">Kasir</div>
+            </div>
+            <div class="uc-actor">
+              <div class="uc-actor-circle" style="border-color:var(--p);background:rgba(192,132,252,.1);">👨‍💼</div>
+              <div class="uc-actor-lbl" style="color:var(--p);">Admin</div>
+            </div>
+            <div class="uc-actor">
+              <div class="uc-actor-circle" style="border-color:var(--y);background:rgba(255,225,53,.1);">👑</div>
+              <div class="uc-actor-lbl" style="color:var(--y);">Owner / Pemilik</div>
+            </div>
+            <div class="uc-actor">
+              <div class="uc-actor-circle" style="border-color:var(--g);background:rgba(10,255,108,.1);">🛍️</div>
+              <div class="uc-actor-lbl" style="color:var(--g);">Customer</div>
+            </div>
+          </div>
+          <div class="uc-system">
+            <div class="uc-sys-lbl">«system boundary» Aplikasi Kasir Aulia e-POS</div>
+            <div class="uc-grid">
+              <div class="uc-bubble k">🔐 Login Sistem</div>
+              <div class="uc-bubble k">🛒 Proses Penjualan (POS)</div>
+              <div class="uc-bubble k">💳 Terima Pembayaran QRIS/Tunai/EDC</div>
+              <div class="uc-bubble k">🧾 Cetak/Kirim Struk Digital</div>
+              <div class="uc-bubble k">🔍 Scan Barcode Produk</div>
+              <div class="uc-bubble k">🍽️ Atur Meja & Reservasi</div>
+
+              <div class="uc-bubble a">📦 Kelola Produk & Inventori</div>
+              <div class="uc-bubble a">🏭 Input Pembelian Supplier (PO)</div>
+              <div class="uc-bubble a">🔄 Stok Opname & Rekonsiliasi</div>
+              <div class="uc-bubble a">👥 Kelola Data Pelanggan & CRM</div>
+              <div class="uc-bubble a">🏷️ Atur Diskon, Promo & Grosir</div>
+              <div class="uc-bubble a">👔 Absensi & Data Karyawan</div>
+
+              <div class="uc-bubble o">📊 Laporan Penjualan & Pembelian</div>
+              <div class="uc-bubble o">💰 Laporan Keuangan (L/R, Neraca, Kas)</div>
+              <div class="uc-bubble o">📦 Laporan Stok & Expired</div>
+              <div class="uc-bubble o">💵 Payroll & Penggajian</div>
+              <div class="uc-bubble o">🌐 Kelola Toko Online & Marketplace</div>
+              <div class="uc-bubble o">📱 Aplikasi Owner (Mobile)</div>
+
+              <div class="uc-bubble c">🛒 Belanja via Toko Online / Weborder</div>
+              <div class="uc-bubble c">📋 QR Menu (E-Menu)</div>
+              <div class="uc-bubble c">🧾 Terima Struk Digital (WA/Email)</div>
+              <div class="uc-bubble c">🎁 Gunakan Poin Loyalitas</div>
+              <div class="uc-bubble c">📦 Lacak Status Pesanan Online</div>
+              <div class="uc-bubble c">💳 Deposit Pelanggan</div>
+            </div>
+          </div>
+          <div class="uc-legend">
+            <div class="uc-leg"><div class="uc-leg-dot" style="background:var(--b);"></div>Kasir — Operasional Harian</div>
+            <div class="uc-leg"><div class="uc-leg-dot" style="background:var(--p);"></div>Admin — Manajemen & Konfigurasi</div>
+            <div class="uc-leg"><div class="uc-leg-dot" style="background:var(--y);"></div>Owner — Monitoring & Laporan</div>
+            <div class="uc-leg"><div class="uc-leg-dot" style="background:var(--g);"></div>Customer — Interaksi Belanja</div>
+          </div>
+        </div>
+      </div>
+      <span class="pk-tag t-b">Use Case Diagram</span>
+    </div>
+
+    <!-- G. FAQs -->
+    <div class="pk-card pk-card--wide">
+      <div class="pk-num">G</div>
+      <div class="pk-icon">🙋</div>
+      <h3>FAQ — Pertanyaan Umum Seputar Aulia e-POS</h3>
+      <p>Pertanyaan yang paling sering diajukan oleh calon pengguna dan pengguna aktif Aplikasi Kasir Aulia e-POS dari auliasoft.com. Klik pertanyaan untuk melihat jawaban lengkap.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Apa bedanya Aulia e-POS (E-POS) dengan A-POS dan A-WARUNG? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">AuliaSoft menyediakan tiga pilihan aplikasi kasir online: <strong>A-WARUNG</strong> dan <strong>A-POS</strong> tersedia mulai Rp 50.000 untuk usaha sangat kecil. <strong>Aulia e-POS</strong> (Aplikasi Toko UMKM E-POS) tersedia dalam 3 versi — Basic Rp 149.999, Standar Rp 349.999, dan Premium Rp 749.999 — dengan fitur yang jauh lebih lengkap termasuk multi outlet, akuntansi, dan payroll.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Apakah aplikasi kasir ini bisa digunakan tanpa koneksi internet? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">AuliaSoft menggunakan sistem <strong>hybrid desktop + cloud</strong>. Aplikasi desktop dapat digunakan secara offline, sementara versi cloud/web membutuhkan koneksi internet. Tim kami akan membantu memilih solusi yang paling sesuai dengan kondisi koneksi internet di lokasi usaha kamu.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Bagaimana cara pembayaran dan berapa lama proses aktifasinya? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Pembayaran dilakukan via transfer bank ke rekening BRI <strong>789001005408534</strong> a/n PT Mitra Aulia Indonesia. Setelah konfirmasi pembayaran, tim teknis kami akan melakukan setup dan aktivasi akun. Proses instalasi dan pelatihan onboarding juga disediakan setelah pembelian.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Apakah tersedia demo gratis sebelum membeli? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Ya, tersedia demo gratis. Hubungi tim AuliaSoft via WhatsApp di <strong>+62 812-4194-5881</strong> untuk mengatur jadwal demonstrasi langsung. Tim kami akan menjelaskan fitur-fitur sesuai jenis usaha kamu secara spesifik tanpa biaya.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Berapa banyak jenis laporan yang tersedia di Aulia e-POS? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Aulia e-POS menyediakan lebih dari <strong>200 laporan keuangan dan operasional</strong> secara instan — termasuk Laba/Rugi, Neraca, Arus Kas, Buku Besar, Histori Bank, Laporan Penjualan, Laporan Pembelian, Laporan Stok, Laporan Expired, Laporan Pajak, dan masih banyak lagi. Semua bisa diakses kapan pun tanpa harus menunggu staf menyiapkan laporan.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Apakah mendukung integrasi marketplace seperti Shopee dan Tokopedia? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Ya, integrasi marketplace tersedia di <strong>Paket Premium</strong> — mencakup Shopee, Tokopedia, Grabmart, dan multi-akun marketplace Omnichannel. Fitur ini memungkinkan pengelolaan stok dan pesanan dari semua platform dalam satu dashboard terpadu.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Apakah ada garansi untuk aplikasi AuliaSoft? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Ya! AuliaSoft memberikan <strong>garansi resmi selama 1,5 tahun</strong> untuk setiap produk yang dibeli. Selain garansi, tersedia juga dukungan teknis dan support online via WhatsApp 24/7 selama masa penggunaan aplikasi.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Apakah bisa digunakan untuk lebih dari satu toko/cabang? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Fitur <strong>Multi Outlet</strong> tersedia mulai Paket Standar dan Premium. Dengan fitur ini, kamu dapat mengelola beberapa cabang toko dalam satu akun terpusat, lengkap dengan transfer stok antar outlet dan laporan performa per cabang.</div>
+        </div>
+      </div>
+      <span class="pk-tag t-g">FAQs</span>
+    </div>
+
+    <!-- H. ROADMAP -->
+    <div class="pk-card pk-card--wide">
+      <div class="pk-num">H</div>
+      <div class="pk-icon">🗺️</div>
+      <h3>Product Roadmap — Fitur Tiap Versi Aulia e-POS</h3>
+      <p>Aulia e-POS dikembangkan secara bertahap dengan tiga level versi yang semakin lengkap. Setiap versi dapat diupgrade kapan saja seiring pertumbuhan bisnis kamu — dari kasir tunggal hingga ekosistem multi-outlet omnichannel.</p>
+      <div class="rm-grid">
+        <div class="rm-col">
+          <div class="rm-head">
+            <div class="rm-tier-badge" style="background:rgba(255,59,107,.2);color:var(--r);">BASIC</div>
+            <div class="rm-title">Operasional & Penjualan</div>
+            <div class="rm-price">Rp 149.999 / bulan</div>
+          </div>
+          <ul class="rm-list">
+            <li>Single outlet (1 toko/lokasi)</li>
+            <li>Toko Online terintegrasi</li>
+            <li>Aplikasi Kasir Online</li>
+            <li>Manajemen Inventori (dasar)</li>
+            <li>CRM Pelanggan</li>
+            <li>Laporan Lengkap (standar)</li>
+            <li>Manajemen Karyawan (dasar)</li>
+            <li>Pencatatan Keuangan (Invoice, SO, DO)</li>
+            <li>Digital Payment QRIS (statis)</li>
+          </ul>
+        </div>
+        <div class="rm-col">
+          <div class="rm-head">
+            <div class="rm-tier-badge" style="background:rgba(56,189,248,.15);color:var(--b);">STANDARD</div>
+            <div class="rm-title">Operasional + Keuangan</div>
+            <div class="rm-price">Rp 349.999 / bulan</div>
+          </div>
+          <ul class="rm-list">
+            <li>Multi outlet (banyak cabang)</li>
+            <li>Kasir Online: atur meja, multisatuan</li>
+            <li>Inventori: COGS average, produksi stok, transfer stok antar outlet</li>
+            <li>CRM + deposit pelanggan</li>
+            <li>Laporan + analisa bisnis lanjutan</li>
+            <li>Karyawan: absensi foto, otorisasi advance</li>
+            <li>Akuntansi Lengkap (Faktur, CoA, Auto Posting, Laporan Akuntansi)</li>
+            <li>QRIS Dynamic, EDC (kartu debit/kredit)</li>
+            <li>Struk Digital: WA, SMS, Email</li>
+            <li>Aplikasi Owner & Order Online</li>
+          </ul>
+        </div>
+        <div class="rm-col">
+          <div class="rm-head">
+            <div class="rm-tier-badge" style="background:rgba(255,225,53,.15);color:var(--y);">⭐ PREMIUM</div>
+            <div class="rm-title">Full Automasi & Omnichannel</div>
+            <div class="rm-price">Rp 749.999 / bulan</div>
+          </div>
+          <ul class="rm-list">
+            <li>Multi outlet + semua fitur Standard</li>
+            <li>Toko Online: Website, Webtree, Weborder, Domain Premium, Shopee, Tokopedia, Grabmart, Omnichannel</li>
+            <li>Kasir: reservasi & produk jasa, leveling komisi, serial number, batch number, grosir</li>
+            <li>Inventori: serial number, batch number, permintaan barang, pengiriman pembelian</li>
+            <li>Payroll lengkap: shift, struktur gaji, penggajian, transfer gaji</li>
+            <li>Aulia Teams: absensi foto geolokasi, ePayslip, broadcast pengumuman</li>
+            <li>Order Online: Weborder, QR Emenu, Grabfood, Gofood</li>
+            <li>QRIS Dynamic, EDC, Struk Digital</li>
+          </ul>
+        </div>
+      </div>
+      <span class="pk-tag t-b">Product Roadmap</span>
+    </div>
+
+    <!-- I. CUSTOMIZATION -->
     <div class="pk-card">
-      <div class="pk-num">08</div>
+      <div class="pk-num">I</div>
+      <div class="pk-icon">🛠️</div>
+      <h3>Layanan Kustomisasi Aulia e-POS</h3>
+      <p>AuliaSoft menyediakan layanan <strong>"Customize sesuai kebutuhan"</strong> — pengembangan fitur dan modul khusus di luar paket standar yang tersedia, untuk klien yang memiliki kebutuhan operasional unik.</p>
+      <div class="custom-grid">
+        <div class="custom-card">
+          <div class="custom-icon">🏪</div>
+          <div class="custom-title">Aplikasi Toko Spesifik</div>
+          <div class="custom-desc">AuliaSoft telah mengembangkan 50+ aplikasi kasir spesifik per jenis usaha — dari Toko Frozen, Apotek, hingga Pondok Pesantren. Setiap aplikasi memiliki alur dan fitur yang disesuaikan.</div>
+          <div class="custom-note">Tersedia: Rp 1.500.000</div>
+        </div>
+        <div class="custom-card">
+          <div class="custom-icon">💻</div>
+          <div class="custom-title">Jasa Pengembangan Web</div>
+          <div class="custom-desc">Jasa pembuatan website profil usaha, toko online, atau landing page yang dapat diintegrasikan dengan sistem kasir Aulia e-POS.</div>
+          <div class="custom-note">Kategori: Jasa Web (tersedia di auliasoft.com)</div>
+        </div>
+        <div class="custom-card">
+          <div class="custom-icon">🔗</div>
+          <div class="custom-title">Integrasi Sistem Keuangan</div>
+          <div class="custom-desc">Integrasi Aulia e-POS dengan sistem akuntansi, ERP, atau platform digital lainnya yang sudah berjalan di bisnis kamu. Termasuk integrasi Onecoop, Simkopdes, dan Cooplink.</div>
+          <div class="custom-note">Konsultasi via WhatsApp</div>
+        </div>
+        <div class="custom-card">
+          <div class="custom-icon">📋</div>
+          <div class="custom-title">Laporan & Format Khusus</div>
+          <div class="custom-desc">Format laporan yang disesuaikan dengan kebutuhan audit, perpajakan, atau standar pelaporan keuangan tertentu yang berlaku di industri atau wilayah kamu.</div>
+          <div class="custom-note">Kategori: KEUANGAN/CUSTOM</div>
+        </div>
+      </div>
+      <span class="pk-tag t-p">Customization</span>
+    </div>
+
+    <!-- J. COMPETITORS -->
+    <div class="pk-card pk-card--wide">
+      <div class="pk-num">J</div>
       <div class="pk-icon">⚡</div>
-      <h3>Apa yang Membedakan AuliaSoft dari Solusi Lain?</h3>
-      <p>Di tengah banyaknya pilihan perangkat lunak manajemen usaha di Indonesia, AuliaSoft memiliki sejumlah keunggulan yang sulit ditandingi, terutama untuk segmen koperasi dan lembaga keuangan mikro.</p>
-      <ul class="info-list">
-        <li><strong>Harga paling kompetitif</strong> — Lisensi permanen mulai Rp 1.500.000, tanpa langganan bulanan</li>
-        <li><strong>Garansi resmi 1,5 tahun</strong> — Perlindungan investasi jangka panjang yang nyata</li>
-        <li><strong>Sistem hybrid online & offline</strong> — Tetap beroperasi meski koneksi internet tidak stabil</li>
-        <li><strong>Dukungan 24/7 via WhatsApp</strong> — Tim support siap membantu kapan pun dibutuhkan</li>
-        <li><strong>Ekosistem mitra yang luas</strong> — Terintegrasi dengan Onecoop, Cooplink, dan Simkopdes</li>
-        <li><strong>Spesialisasi di segmen koperasi</strong> — Bukan software generik, melainkan dirancang khusus untuk kebutuhan koperasi Indonesia</li>
-      </ul>
+      <h3>Keunggulan Aulia e-POS vs Kompetitor Aplikasi Kasir</h3>
+      <p>Di pasar aplikasi kasir Indonesia yang semakin ramai, Aulia e-POS hadir dengan proposisi nilai yang unik — terutama dari sisi harga, kelengkapan fitur akuntansi bawaan, kustomisasi jenis usaha, dan dukungan lokal yang responsif.</p>
+      <div class="comp-wrap">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Aspek Perbandingan</th>
+              <th style="color:var(--y);">Aulia e-POS ⭐</th>
+              <th>Moka POS</th>
+              <th>iREAP POS</th>
+              <th>Kasir Pintar</th>
+              <th>Majoo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Harga mulai</td><td class="aulia-td win">Rp 50.000/bln</td><td>Rp 300.000/bln</td><td>Gratis (terbatas)</td><td>Rp 99.000/bln</td><td>Rp 149.000/bln</td></tr>
+            <tr><td>Akuntansi Lengkap bawaan</td><td class="aulia-td win">✓ (CoA, Auto Posting)</td><td class="neu">Add-on</td><td class="neu">Terbatas</td><td class="neu">Terbatas</td><td class="neu">Terbatas</td></tr>
+            <tr><td>Garansi resmi</td><td class="aulia-td win">✓ 1,5 Tahun</td><td class="neu">SLA Ticketing</td><td class="neu">—</td><td class="neu">—</td><td class="neu">—</td></tr>
+            <tr><td>Payroll terintegrasi</td><td class="aulia-td win">✓ (Premium)</td><td class="neu">Tidak</td><td class="neu">Tidak</td><td class="neu">Tidak</td><td class="win">✓ (Add-on)</td></tr>
+            <tr><td>Kustomisasi per jenis usaha</td><td class="aulia-td win">✓ 50+ varian</td><td class="neu">Generik</td><td class="neu">Generik</td><td class="neu">Generik</td><td class="neu">Generik</td></tr>
+            <tr><td>Support WA 24/7</td><td class="aulia-td win">✓ Langsung</td><td class="neu">Ticketing</td><td class="neu">Email/Forum</td><td class="neu">Chat App</td><td class="neu">Chat App</td></tr>
+            <tr><td>Multi outlet</td><td class="aulia-td win">✓ (Standar+)</td><td class="win">✓</td><td class="win">✓</td><td class="win">✓</td><td class="win">✓</td></tr>
+            <tr><td>Omnichannel Marketplace</td><td class="aulia-td win">✓ (Premium)</td><td class="neu">Terbatas</td><td class="neu">Tidak</td><td class="neu">Tidak</td><td class="win">✓</td></tr>
+            <tr><td>Integrasi koperasi/BUMDes</td><td class="aulia-td win">✓ Eksklusif</td><td class="neu">Tidak</td><td class="neu">Tidak</td><td class="neu">Tidak</td><td class="neu">Tidak</td></tr>
+            <tr><td>Laporan Keuangan 200+</td><td class="aulia-td win">✓ Instan</td><td class="neu">Terbatas</td><td class="neu">Terbatas</td><td class="neu">Terbatas</td><td class="neu">Terbatas</td></tr>
+          </tbody>
+        </table>
+      </div>
       <span class="pk-tag t-p">vs Kompetitor</span>
     </div>
 
-    <!-- 09 USE CASE — WIDE -->
+    <!-- K. COMPLEMENTARY PRODUCTS -->
     <div class="pk-card pk-card--wide">
-      <div class="pk-num">09</div>
-      <div class="pk-icon">⚙️</div>
-      <h3>Fitur per Role — Alur Sistem & Use Case</h3>
-      <p>Sistem AuliaSoft dirancang dengan pendekatan berbasis peran (role-based access), memastikan setiap pengguna hanya mengakses fitur yang relevan dengan tanggung jawabnya. Terdapat empat peran utama yang terintegrasi dalam satu alur kerja yang kohesif.</p>
-      <p>Diagram berikut menggambarkan secara visual hubungan antar-peran dan fitur-fitur yang tersedia dalam sistem:</p>
-
-      <img src="WhatsApp Image 2026-04-22 at 18.02.57.jpeg" alt="Diagram Use Case Sistem AuliaSoft — Alur Peran Kasir, Admin, Pemilik, dan Customer" class="use-case-img">
-
-      <p>Pilih salah satu peran di bawah untuk melihat daftar fitur yang tersedia secara detail:</p>
-
-      <div class="uc-tabs">
-        <button class="uc-tab active" onclick="showActor('kasir',this)">// KASIR</button>
-        <button class="uc-tab" onclick="showActor('admin',this)">// ADMIN</button>
-        <button class="uc-tab" onclick="showActor('pemilik',this)">// PEMILIK</button>
-        <button class="uc-tab" onclick="showActor('customer',this)">// CUSTOMER</button>
-      </div>
-
-      <div class="uc-panel" id="uc-kasir">
-        <div class="uc-items">
-          <div class="uc-item"><span class="uc-dot"></span>Login ke sistem dengan autentikasi aman</div>
-          <div class="uc-item"><span class="uc-dot"></span>Mencatat transaksi pembelian dari supplier</div>
-          <div class="uc-item"><span class="uc-dot"></span>Memproses transaksi penjualan ke pelanggan</div>
-          <div class="uc-item"><span class="uc-dot"></span>Melihat & mencari data produk secara real-time</div>
-          <div class="uc-item"><span class="uc-dot ext"></span>Pembayaran via QRIS / Tunai <span class="uc-badge">extend</span></div>
-          <div class="uc-item"><span class="uc-dot ext"></span>Pembayaran via Kartu Kredit/Debit <span class="uc-badge">extend</span></div>
-          <div class="uc-item"><span class="uc-dot"></span>Mencetak struk & bukti transaksi</div>
-          <div class="uc-item"><span class="uc-dot"></span>Logout dengan aman dari sistem</div>
+      <div class="pk-num">K</div>
+      <div class="pk-icon">🔌</div>
+      <h3>Produk Pelengkap — Hardware dari AuliaSoft</h3>
+      <p>AuliaSoft juga menyediakan <span class="highlight">hardware kasir resmi</span> yang telah teruji kompatibilitasnya dengan Aulia e-POS, tersedia langsung di <a href="https://www.auliasoft.com/kategori-produk/hardware" target="_blank" style="color:var(--y);">auliasoft.com/kategori-produk/hardware</a>. Satu vendor, satu layanan — tidak perlu khawatir masalah integrasi.</p>
+      <div class="compl-grid">
+        <div class="compl-card">
+          <div style="background:#111;border-radius:6px;height:70px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:10px;">🖨️</div>
+          <div class="compl-name">Printer Struk 58mm Kasir</div>
+          <div class="compl-desc">Printer thermal 58mm koneksi USB + Bluetooth untuk kasir aktif. Kompatibel penuh dengan Aulia e-POS. Cetak struk cepat dan presisi.</div>
+          <div class="compl-price">Rp 500.000</div>
+        </div>
+        <div class="compl-card">
+          <div style="background:#111;border-radius:6px;height:70px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:10px;">📡</div>
+          <div class="compl-name">Scanner Barcode Kasir</div>
+          <div class="compl-desc">Scanner barcode USB plug-and-play untuk scan produk cepat di kasir. Tidak perlu driver, langsung terhubung dengan sistem Aulia e-POS.</div>
+          <div class="compl-price">Rp 700.000</div>
+        </div>
+        <div class="compl-card">
+          <div style="background:#111;border-radius:6px;height:70px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:10px;">💰</div>
+          <div class="compl-name">Laci Kasir / Cash Drawer</div>
+          <div class="compl-desc">Laci uang kasir RJ11 yang terhubung ke printer struk. Terbuka otomatis setiap transaksi tunai selesai diproses kasir.</div>
+          <div class="compl-price">Rp 650.000</div>
+        </div>
+        <div class="compl-card">
+          <div style="background:#111;border-radius:6px;height:70px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:10px;">📓</div>
+          <div class="compl-name">Printer Buku Epson PLQ-20 Second</div>
+          <div class="compl-desc">Printer buku tabungan standar bank Epson PLQ-20 kondisi second. Cocok untuk koperasi simpan pinjam dan mini bank.</div>
+          <div class="compl-price">Rp 2.500.000</div>
+        </div>
+        <div class="compl-card">
+          <div style="background:#111;border-radius:6px;height:70px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:10px;">📓</div>
+          <div class="compl-name">Printer Buku Epson PLQ-20 New</div>
+          <div class="compl-desc">Printer buku tabungan Epson PLQ-20 kondisi baru. Cetak data simpanan anggota koperasi langsung dari aplikasi AuliaSoft.</div>
+          <div class="compl-price">Rp 3.500.000</div>
+        </div>
+        <div class="compl-card">
+          <div style="background:#111;border-radius:6px;height:70px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:10px;">📒</div>
+          <div class="compl-name">Buku Tabungan Standar Bank</div>
+          <div class="compl-desc">Buku tabungan standar bank untuk nasabah koperasi dan mini bank. Kompatibel dengan printer PLQ-20 AuliaSoft.</div>
+          <div class="compl-price">Rp 6.000 / buku</div>
+        </div>
+        <div class="compl-card">
+          <div style="background:#111;border-radius:6px;height:70px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:10px;">💵</div>
+          <div class="compl-name">Mesin Penghitung Uang</div>
+          <div class="compl-desc">Mesin hitung uang untuk kasir dengan volume transaksi tunai tinggi. Deteksi uang palsu, perhitungan cepat dan akurat.</div>
+          <div class="compl-price">Rp 2.700.000</div>
+        </div>
+        <div class="compl-card">
+          <div style="background:#111;border-radius:6px;height:70px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:10px;">🌐</div>
+          <div class="compl-name">Jasa Web & Toko Online</div>
+          <div class="compl-desc">Layanan pembuatan website profil usaha, toko online (E-OLSHOP), atau landing page yang dapat diintegrasikan langsung dengan Aulia e-POS.</div>
+          <div class="compl-price">Mulai Rp 199.999</div>
         </div>
       </div>
-      <div class="uc-panel" id="uc-admin" style="display:none">
-        <div class="uc-items">
-          <div class="uc-item"><span class="uc-dot"></span>Mengelola dan memverifikasi pembayaran</div>
-          <div class="uc-item"><span class="uc-dot"></span>Mengelola akun & hak akses pengguna</div>
-          <div class="uc-item"><span class="uc-dot"></span>Manajemen data karyawan & absensi</div>
-          <div class="uc-item"><span class="uc-dot"></span>Mengelola program CRM & loyalitas pelanggan</div>
-          <div class="uc-item"><span class="uc-dot"></span>Konfigurasi metode & gateway pembayaran</div>
-          <div class="uc-item"><span class="uc-dot"></span>Memantau log aktivitas sistem</div>
-          <div class="uc-item"><span class="uc-dot"></span>Mengelola data anggota koperasi</div>
-        </div>
-      </div>
-      <div class="uc-panel" id="uc-pemilik" style="display:none">
-        <div class="uc-items">
-          <div class="uc-item"><span class="uc-dot"></span>Mengelola database supplier & vendor</div>
-          <div class="uc-item"><span class="uc-dot"></span>Mengelola katalog & harga produk</div>
-          <div class="uc-item"><span class="uc-dot"></span>Melihat laporan penjualan harian/bulanan</div>
-          <div class="uc-item"><span class="uc-dot"></span>Melihat laporan pembelian & pengeluaran</div>
-          <div class="uc-item"><span class="uc-dot"></span>Memantau stok & peringatan stok menipis</div>
-          <div class="uc-item"><span class="uc-dot"></span>Analisis keuntungan & margin per produk</div>
-          <div class="uc-item"><span class="uc-dot"></span>Mengekspor laporan ke format Excel/PDF</div>
-        </div>
-      </div>
-      <div class="uc-panel" id="uc-customer" style="display:none">
-        <div class="uc-items">
-          <div class="uc-item"><span class="uc-dot"></span>Menelusuri halaman & katalog produk</div>
-          <div class="uc-item"><span class="uc-dot"></span>Mengelola keranjang belanja secara mandiri</div>
-          <div class="uc-item"><span class="uc-dot"></span>Melacak status & riwayat pesanan</div>
-          <div class="uc-item"><span class="uc-dot ext"></span>Notifikasi status pesanan otomatis <span class="uc-badge">include</span></div>
-          <div class="uc-item"><span class="uc-dot"></span>Melihat riwayat transaksi & poin loyalitas</div>
-        </div>
-      </div>
-      <span class="pk-tag t-b" style="margin-top:18px">Product Features</span>
+      <span class="pk-tag t-o">Complementary Products</span>
     </div>
 
-    <!-- 10 ECOSYSTEM -->
-    <div class="pk-card">
-      <div class="pk-num">10</div>
-      <div class="pk-icon">🔗</div>
-      <h3>Ekosistem Digital yang Saling Terhubung</h3>
-      <p>AuliaSoft bukan sekadar aplikasi berdiri sendiri. Kami merupakan bagian dari ekosistem digital yang lebih luas, memberikan kamu akses ke berbagai layanan dan integrasi tambahan yang memperkuat kapabilitas operasional usaha kamu.</p>
-      <ul class="info-list">
-        <li><strong>Jasa Pengembangan Web</strong> — Website profil usaha atau toko online yang terintegrasi dengan sistem</li>
-        <li><strong>Pengadaan Hardware</strong> — Perangkat kasir, printer struk, barcode scanner, dan QRIS terminal</li>
-        <li><strong>Simkopdes</strong> — Sistem informasi koperasi desa terintegrasi</li>
-        <li><strong>Onecoop</strong> — Platform digital koperasi nasional dari Kemenkop RI</li>
-        <li><strong>Cooplink</strong> — Jaringan koperasi untuk sharing data dan kolaborasi antar lembaga</li>
-        <li><strong>Payment Gateway</strong> — Integrasi QRIS dan berbagai metode pembayaran digital</li>
-      </ul>
-      <span class="pk-tag t-r">Ecosystem</span>
-    </div>
-
-    <!-- 11 USE CASES REAL -->
-    <div class="pk-card">
-      <div class="pk-num">11</div>
-      <div class="pk-icon">💼</div>
-      <h3>Pengguna Nyata, Manfaat yang Terbukti</h3>
-      <p>Nilai sebuah software dibuktikan bukan dari klaim promosi, melainkan dari dampak nyata di lapangan. Berikut adalah gambaran nyata bagaimana AuliaSoft mengubah cara kerja berbagai jenis usaha di Indonesia:</p>
-      <ul class="info-list">
-        <li><strong>Koperasi Desa</strong> — Yang semula mencatat simpan pinjam ratusan anggota secara manual kini mengelola semuanya secara digital dengan laporan otomatis setiap bulan.</li>
-        <li><strong>Toko Sembako</strong> — Pemilik toko kini dapat memantau stok secara real-time dan menerima notifikasi otomatis saat stok barang hampir habis.</li>
-        <li><strong>LAZIS</strong> — Tim pengelola zakat membuat laporan distribusi dana yang transparan hanya dalam hitungan menit, bukan hari.</li>
-        <li><strong>BUMDes</strong> — Pengelola BUMDes dapat menampilkan laporan keuangan yang akuntabel kepada pemerintah desa tanpa perlu akuntan eksternal.</li>
-        <li><strong>BMT Syariah</strong> — Akad pembiayaan syariah dikelola dengan modul yang sesuai prinsip syariah dan mudah diaudit.</li>
-      </ul>
-      <span class="pk-tag t-y">Use Cases</span>
-    </div>
-
-    <!-- 12 HOW TO ORDER -->
-    <div class="pk-card">
-      <div class="pk-num">12</div>
+    <!-- L. PROCESSES & POLICIES -->
+    <div class="pk-card pk-card--wide">
+      <div class="pk-num">L</div>
       <div class="pk-icon">📋</div>
-      <h3>Cara Pemesanan — Mudah dan Cepat</h3>
-      <p>Kami merancang proses pemesanan sesederhana mungkin agar kamu bisa segera fokus pada bisnis, bukan pada proses administrasi yang memakan waktu. Berikut adalah langkah-langkah pemesanan AuliaSoft:</p>
+      <h3>Proses Testing, Order & Kebijakan AuliaSoft</h3>
+      <p>AuliaSoft menerapkan proses yang sederhana dan transparan — dari konsultasi awal hingga garansi purna jual selama 1,5 tahun. Pengiriman dan instalasi melayani <span class="highlight">seluruh wilayah Indonesia</span>.</p>
+
+      <div class="sec-sub-label">⬡ Proses Testing & Demo</div>
+      <div class="process-grid">
+        <div class="proc-card"><div class="proc-num">1</div><div class="proc-icon">💬</div><div class="proc-title">Konsultasi via WhatsApp</div><div class="proc-desc">Hubungi tim AuliaSoft di +62 812-4194-5881. Ceritakan jenis usaha dan kebutuhan fitur. Gratis, tanpa tekanan, tim siap membantu 24/7.</div></div>
+        <div class="proc-card"><div class="proc-num">2</div><div class="proc-icon">🖥️</div><div class="proc-title">Demo Produk Langsung</div><div class="proc-desc">Tim kami mengadakan demo aplikasi secara langsung, menjelaskan fitur-fitur yang relevan dengan jenis usaha dan skala bisnis kamu.</div></div>
+        <div class="proc-card"><div class="proc-num">3</div><div class="proc-icon">✅</div><div class="proc-title">Pilih Produk & Versi</div><div class="proc-desc">Pilih produk kasir yang sesuai jenis usaha (50+ varian tersedia) dan pilih versi Basic/Standar/Premium yang paling sesuai anggaran.</div></div>
+        <div class="proc-card"><div class="proc-num">4</div><div class="proc-icon">🎓</div><div class="proc-title">Pelatihan Onboarding</div><div class="proc-desc">Setelah instalasi, tim AuliaSoft melakukan pelatihan penggunaan untuk kasir dan admin agar langsung bisa beroperasi optimal.</div></div>
+      </div>
+
+      <div class="sec-sub-label">⬡ Proses Order & Pembayaran</div>
+      <div class="process-grid">
+        <div class="proc-card"><div class="proc-num">1</div><div class="proc-icon">📲</div><div class="proc-title">Konfirmasi via WhatsApp</div><div class="proc-desc">Chat ke WA +62 812-4194-5881 atau klik "Pesan via WhatsApp" di halaman produk auliasoft.com. Tersedia opsi pesan langsung per produk.</div></div>
+        <div class="proc-card"><div class="proc-num">2</div><div class="proc-icon">🏦</div><div class="proc-title">Transfer Pembayaran</div><div class="proc-desc">Transfer ke rekening BRI <strong style="color:#fff;">789001005408534</strong> a/n PT Mitra Aulia Indonesia. Kirimkan bukti transfer via WhatsApp untuk konfirmasi.</div></div>
+        <div class="proc-card"><div class="proc-num">3</div><div class="proc-icon">⚙️</div><div class="proc-title">Instalasi & Setup</div><div class="proc-desc">Tim teknis melakukan instalasi, konfigurasi akun, dan setup awal sistem. Pengiriman hardware dilakukan ke seluruh wilayah Indonesia.</div></div>
+        <div class="proc-card"><div class="proc-num">4</div><div class="proc-icon">🛡️</div><div class="proc-title">Garansi 1,5 Tahun Aktif</div><div class="proc-desc">Garansi resmi aplikasi selama 1,5 tahun. Support online & WA 24/7 aktif selama masa garansi. Harga kompetitif, nilai maksimal.</div></div>
+      </div>
+
+      <div class="sec-sub-label">⬡ Kebijakan Layanan AuliaSoft</div>
       <ul class="info-list">
-        <li><strong>Langkah 1 — Hubungi Kami</strong> — Chat via WhatsApp ke <strong>+62 812-4194-5881</strong> untuk memulai proses konsultasi awal.</li>
-        <li><strong>Langkah 2 — Konsultasi Gratis</strong> — Tim kami akan menganalisis kebutuhan spesifik usaha kamu dan merekomendasikan produk yang paling sesuai.</li>
-        <li><strong>Langkah 3 — Pembayaran</strong> — Transfer ke rekening BRI <strong>789001005408534</strong> a/n PT Mitra Aulia Indonesia. Kami akan mengirimkan invoice resmi.</li>
-        <li><strong>Langkah 4 — Instalasi & Onboarding</strong> — Tim teknis kami melakukan instalasi dan konfigurasi sistem, serta pelatihan penggunaan untuk tim kamu.</li>
-        <li><strong>Langkah 5 — Garansi & Support</strong> — Nikmati garansi resmi 1,5 tahun dan dukungan teknis 24/7 via WhatsApp selama masa penggunaan.</li>
+        <li><strong>Garansi Aplikasi 1,5 Tahun</strong> — Setiap produk dilindungi garansi resmi selama 1,5 tahun. Bug dan error aplikasi diperbaiki tanpa biaya tambahan selama masa garansi.</li>
+        <li><strong>Support Online 24/7</strong> — Tim support siap membantu via WhatsApp kapan saja — hari kerja maupun akhir pekan. Respon cepat adalah komitmen layanan AuliaSoft yang dikonfirmasi oleh 50+ testimoni pengguna.</li>
+        <li><strong>Pengiriman Nasional</strong> — Pengiriman produk (hardware) dan instalasi aplikasi melayani seluruh wilayah Indonesia, termasuk daerah terpencil.</li>
+        <li><strong>Harga Transparan</strong> — Tidak ada biaya tersembunyi. Semua harga tercantum jelas di auliasoft.com. Pembayaran dilakukan satu kali untuk produk desktop, atau berlangganan bulanan untuk produk cloud.</li>
+        <li><strong>Kebijakan Privasi Data</strong> — Data usaha kamu adalah milik kamu sepenuhnya. AuliaSoft tidak menjual atau berbagi data klien kepada pihak ketiga manapun.</li>
+        <li><strong>Mitra Resmi Kemenkop RI</strong> — AuliaSoft adalah mitra resmi Kementerian Koperasi RI, tergabung dalam ekosistem Onecoop, Gantari, Simkopdes, dan Cooplink.</li>
       </ul>
-      <p style="margin-top:12px">Pengiriman dan instalasi melayani seluruh wilayah Indonesia.</p>
-      <span class="pk-tag t-g">How to Order</span>
+      <span class="pk-tag t-y">Processes & Policies</span>
     </div>
 
-  </div>
+  </div><!-- end pk-grid -->
 </div>
 
-<!-- PRODUCTS -->
-<div class="products-band">
-  <div class="products-inner">
-    <div class="reveal">
-      <div class="sec-label">Produk Unggulan</div>
-      <div class="sec-title">Pilih <em>Aplikasi</em><br/>yang Tepat untuk Kamu</div>
+<!-- MITRA BAND -->
+<div class="mitra-band">
+  <div class="mitra-inner">
+    <div class="sec-label">Ekosistem Mitra</div>
+    <div class="sec-title" style="font-size:clamp(1.5rem,3vw,2.5rem);margin-bottom:0;">Ekosistem Digital yang<br/><em>Berkolaborasi bersama AuliaSoft</em></div>
+    <div class="mitra-logos">
+      <div class="mitra-pill">🏛️ Kementerian Koperasi RI</div>
+      <div class="mitra-pill">🔗 Onecoop</div>
+      <div class="mitra-pill">🌿 Gantari</div>
+      <div class="mitra-pill">📱 Simkopdes</div>
+      <div class="mitra-pill">🤝 Cooplink</div>
+      <div class="mitra-pill">🏘️ FORSIMIA</div>
     </div>
-    <div class="prod-grid reveal">
-      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">Koperasi KSP</div><div class="prod-desc">Ekosistem digital hybrid untuk operasional koperasi simpan pinjam konvensional secara menyeluruh.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">KSP Karyawan</div><div class="prod-desc">Solusi digital hybrid terintegrasi dengan modul payroll untuk koperasi karyawan perusahaan.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">KSPPS BMT</div><div class="prod-desc">Solusi syariah lengkap untuk operasional BMT yang aman, terintegrasi, dan sesuai prinsip Islam.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Mini Bank</div><div class="prod-name">Mini Bank KSPPS</div><div class="prod-desc">Core Banking System untuk KSP berskala besar yang membutuhkan layanan setara perbankan.</div><div class="prod-price">Rp 2.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Mini Market</div><div class="prod-desc">Sistem POS minimarket modern dengan fitur manajemen inventori dan laporan penjualan lengkap.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Toko Sembako</div><div class="prod-desc">Manajemen toko kelontong dan sembako dilengkapi kasir digital dan kontrol stok real-time.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Toko Optik</div><div class="prod-desc">POS kacamata dengan manajemen resep (prescription), riwayat pasien, dan laporan penjualan.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Counter HP</div><div class="prod-desc">Sistem POS counter handphone dengan fitur pelacakan perangkat dan manajemen servis.</div><div class="prod-price">Rp 1.500.000</div></div>
-    </div>
+    <p style="text-align:center;font-size:.8rem;color:var(--muted);margin-top:20px;">FORSIMIA — Forum Silaturahmi Mitra Aulia Indonesia</p>
   </div>
 </div>
 
@@ -826,8 +983,8 @@ footer a{color:var(--y);text-decoration:none}
 <div class="cta-block">
   <div class="cta-inner reveal">
     <div>
-      <h2>Siap Memulai<br/><em>Digitalisasi Bisnis</em>?</h2>
-      <p>Konsultasikan kebutuhan kamu dengan tim AuliaSoft secara gratis. Kami siap membantu menemukan solusi yang paling tepat sesuai jenis dan skala usaha kalian — tanpa tekanan, tanpa biaya awal.</p>
+      <h2>Siap Mulai<br/><em>Kasir Digital?</em></h2>
+      <p>Hubungi tim AuliaSoft via WhatsApp untuk konsultasi gratis, demo langsung, dan informasi produk yang sesuai jenis usahamu. Lebih dari 2.000 pelaku usaha telah membuktikannya — bergabunglah sekarang!</p>
     </div>
     <a href="https://wa.me/6281241945881" class="cta-wa" target="_blank">
       <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.118 1.527 5.845L.057 23.761a.5.5 0 0 0 .614.632l6.077-1.595A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 0 1-5.028-1.383l-.36-.214-3.73.979.997-3.648-.235-.374A9.794 9.794 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
@@ -836,46 +993,33 @@ footer a{color:var(--y);text-decoration:none}
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <a href="https://www.auliasoft.com" class="footer-logo" target="_blank">OswaldWillybald©</a>
-  <p>© 2026 PT AuliaSoft · Dukungan 24/7 via <a href="https://wa.me/6281241945881" target="_blank">WhatsApp</a></p>
+  <a href="https://www.auliasoft.com" class="footer-logo" target="_blank">AuliaSoft Digital © 2026</a>
+  <p>PT Mitra Aulia Indonesia · BRI <a href="https://wa.me/6281241945881" target="_blank">789001005408534</a> · Support 24/7 via <a href="https://wa.me/6281241945881" target="_blank">WhatsApp</a></p>
 </footer>
 
 <script>
-// Custom cursor
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('ring');
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('ring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{
   mx=e.clientX;my=e.clientY;
   cursor.style.left=(mx-6)+'px';cursor.style.top=(my-6)+'px';
 });
-function animateRing(){
-  rx+=(mx-rx-18)*.1;ry+=(my-ry-18)*.1;
-  ring.style.left=rx+'px';ring.style.top=ry+'px';
-  requestAnimationFrame(animateRing);
-}
-animateRing();
+(function animR(){rx+=(mx-rx-18)*.1;ry+=(my-ry-18)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animR);})();
 
-// Use case tabs
-function showActor(actor,btn){
-  ['kasir','admin','pemilik','customer'].forEach(a=>{
-    document.getElementById('uc-'+a).style.display=(a===actor)?'block':'none';
-  });
-  document.querySelectorAll('.uc-tab').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
+function toggleFaq(el){
+  const item=el.parentElement;
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!open)item.classList.add('open');
 }
 
-// Scroll reveal
-const io=new IntersectionObserver((entries)=>{
+const io=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{
-    if(e.isIntersecting){
-      setTimeout(()=>e.target.classList.add('on'),i*80);
-      io.unobserve(e.target);
-    }
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*80);io.unobserve(e.target);}
   });
-},{threshold:0.08});
+},{threshold:0.05});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
