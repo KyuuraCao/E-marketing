@@ -29,7 +29,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 40px 80px;position:relative;overflow:hidden;}
 .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:60px 60px;}
-.marquee-wrap{position:absolute;bottom:80px;left:-20px;right:-20px;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 0;white-space:nowrap;}
+.marquee-wrap{position:absolute;bottom:36px;left:-20px;right:-20px;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 0;white-space:nowrap;}
 .marquee-inner{display:inline-block;animation:marquee 18s linear infinite;font-family:'Space Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:.1em;}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .hero-eyebrow{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--g);letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
@@ -84,13 +84,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .pk-card--wide{grid-column:1/-1}
 
 /* PRICING */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;}
 .price-tier{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:22px 18px;position:relative;transition:transform .2s,border-color .2s;}
 .price-tier:hover{transform:translateY(-4px);}
+.price-tier.promo-umkm{border-color:var(--o);}
 .price-tier.promo{border-color:var(--r);}
 .price-tier.standar{border-color:var(--b);}
 .price-tier.premium{border-color:var(--y);}
 .tier-badge{font-family:'Space Mono',monospace;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 9px;border-radius:2px;display:inline-block;margin-bottom:10px;}
+.tier-badge.promo-umkm{background:rgba(255,140,66,.2);color:var(--o);}
 .tier-badge.promo{background:rgba(255,59,107,.2);color:var(--r);}
 .tier-badge.standar{background:rgba(56,189,248,.15);color:var(--b);}
 .tier-badge.premium{background:rgba(255,225,53,.15);color:var(--y);}
@@ -100,6 +102,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .tier-feat{list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:12px;}
 .tier-feat li{font-size:.75rem;color:#aaa;display:flex;align-items:flex-start;gap:6px;line-height:1.5;}
 .tier-feat li::before{content:'✓';color:var(--g);font-size:.65rem;flex-shrink:0;margin-top:2px;}
+.tier-feat li.limit::before{content:'⚠';color:var(--o);font-size:.65rem;flex-shrink:0;margin-top:2px;}
 .best-val{position:absolute;top:-10px;right:12px;background:var(--y);color:var(--dark);font-family:'Space Mono',monospace;font-size:.55rem;font-weight:700;padding:2px 8px;border-radius:2px;text-transform:uppercase;}
 .tier-label{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted);letter-spacing:.06em;margin-bottom:4px;}
 
@@ -139,20 +142,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* USE CASE */
 .uc-diagram{background:#05050f;border:1px solid #1a1a3a;border-radius:8px;padding:24px;margin-top:16px;overflow-x:auto;}
-.uc-inner{min-width:680px;}
+.uc-inner{min-width:520px;}
 .uc-actors{display:flex;justify-content:space-around;margin-bottom:20px;}
 .uc-actor{text-align:center;}
 .uc-actor-circle{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin:0 auto 6px;border:2px solid;}
 .uc-actor-lbl{font-family:'Space Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;}
 .uc-system{border:1.5px dashed #2a2a5a;border-radius:8px;padding:16px;position:relative;}
 .uc-sys-lbl{position:absolute;top:-10px;left:16px;background:#05050f;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--p);padding:0 8px;text-transform:uppercase;letter-spacing:.08em;}
-.uc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
 .uc-bubble{background:#0f0f2a;border:1px solid #2a2a5a;border-radius:18px;padding:7px 8px;text-align:center;font-size:.68rem;color:#bbb;line-height:1.3;transition:all .2s;cursor:default;}
 .uc-bubble:hover{color:var(--y);border-color:var(--y);}
 .uc-bubble.k{border-color:rgba(56,189,248,.35);}
 .uc-bubble.a{border-color:rgba(192,132,252,.35);}
 .uc-bubble.o{border-color:rgba(255,225,53,.35);}
-.uc-bubble.c{border-color:rgba(10,255,108,.35);}
 .uc-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;justify-content:center;}
 .uc-leg{display:flex;align-items:center;gap:5px;font-size:.63rem;font-family:'Space Mono',monospace;color:var(--muted);}
 .uc-leg-dot{width:8px;height:8px;border-radius:50%;}
@@ -226,7 +228,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .proc-desc{font-size:.78rem;color:var(--muted);line-height:1.65;}
 
 /* CUSTOM */
-.custom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:16px;}
+.custom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:16px;}
 .custom-card{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:16px;transition:border-color .2s;}
 .custom-card:hover{border-color:var(--p);}
 .custom-icon{font-size:1.2rem;margin-bottom:8px;}
@@ -260,8 +262,8 @@ footer a{color:var(--y);text-decoration:none}
 .sec-sub-label{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--b);text-transform:uppercase;letter-spacing:.1em;margin-top:20px;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
 .sec-sub-label::before{content:'⬡';color:var(--b);}
 
-@media(max-width:900px){.pricing-grid,.rm-grid{grid-template-columns:1fr;}.uc-grid{grid-template-columns:repeat(2,1fr);}.brand-showcase{grid-template-columns:1fr;}}
-@media(max-width:768px){nav{padding:14px 20px}.hero{padding:120px 20px 80px}.hero h1{letter-spacing:-1px}.hero-stats{flex-direction:column;width:100%}.stat{border-right:none;border-bottom:1px solid var(--border)}.stat:last-child{border-bottom:none}.float-tag{display:none}.sec-wrap,.cta-block{padding:60px 20px}.cta-inner{grid-template-columns:1fr;text-align:center}footer{padding:24px 20px;text-align:center;justify-content:center}nav .nav-tag{display:none}}
+@media(max-width:900px){.pricing-grid{grid-template-columns:1fr 1fr;}.rm-grid{grid-template-columns:1fr;}.uc-grid{grid-template-columns:repeat(2,1fr);}.brand-showcase{grid-template-columns:1fr;}}
+@media(max-width:768px){nav{padding:14px 20px}.hero{padding:120px 20px 80px}.hero h1{letter-spacing:-1px}.hero-stats{flex-direction:column;width:100%}.stat{border-right:none;border-bottom:1px solid var(--border)}.stat:last-child{border-bottom:none}.float-tag{display:none}.sec-wrap,.cta-block{padding:60px 20px}.cta-inner{grid-template-columns:1fr;text-align:center}footer{padding:24px 20px;text-align:center;justify-content:center}nav .nav-tag{display:none}.pricing-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -320,8 +322,25 @@ footer a{color:var(--y);text-decoration:none}
       <div class="pk-num">A</div>
       <div class="pk-icon">💸</div>
       <h3>Harga & Paket — Aplikasi Kasir Aulia e-POS Online</h3>
-      <p>Aulia e-POS (Aplikasi Toko UMKM E-POS) tersedia dalam tiga versi yang dirancang bertahap sesuai skala dan kebutuhan usaha. Mulai dari paket <span class="highlight">Basic Rp 149.999</span>, paket Standar, hingga paket Premium yang lengkap dengan payroll dan omnichannel marketplace.</p>
+      <p>Aulia e-POS (Aplikasi Toko UMKM E-POS) tersedia dalam empat versi yang dirancang bertahap sesuai skala dan kebutuhan usaha. Mulai dari paket <span class="highlight">Promo UMKM Rp 50.000/bulan</span> untuk usaha rintisan, hingga paket Premium yang lengkap dengan payroll dan omnichannel marketplace.</p>
       <div class="pricing-grid">
+
+        <!-- PROMO UMKM — BARU -->
+        <div class="price-tier promo-umkm">
+          <div class="tier-label">Versi</div>
+          <div class="tier-badge promo-umkm">🔥 Promo UMKM</div>
+          <div class="tier-price">Rp 50.000 <sub>/bulan</sub></div>
+          <div class="tier-desc">Untuk usaha rintisan dan UMKM mikro. Kelola penjualan harian dengan kasir digital yang simpel dan terjangkau.</div>
+          <ul class="tier-feat">
+            <li>Single Outlet</li>
+            <li>Aplikasi Kasir Online</li>
+            <li>Manajemen Inventori (dasar)</li>
+            <li>Laporan Penjualan</li>
+            <li>Digital Payment QRIS (statis)</li>
+            <li class="limit" style="color:var(--o);">Maks. 500 item produk</li>
+          </ul>
+        </div>
+
         <div class="price-tier promo">
           <div class="tier-label">Versi</div>
           <div class="tier-badge promo">Basic</div>
@@ -354,7 +373,7 @@ footer a{color:var(--y);text-decoration:none}
             <li>Karyawan (absensi foto, otorisasi advance)</li>
             <li>Akuntansi Lengkap (Faktur, CoA, Auto Posting)</li>
             <li>QRIS Dynamic, EDC, Struk Digital (WA/SMS/Email)</li>
-            <li>Aplikasi Owner & Order Online</li>
+            <li>Aplikasi Owner &amp; Order Online</li>
           </ul>
         </div>
         <div class="price-tier premium">
@@ -377,7 +396,7 @@ footer a{color:var(--y);text-decoration:none}
           </ul>
         </div>
       </div>
-      <p style="margin-top:16px;font-size:.8rem;color:var(--muted);">📌 Tersedia juga <strong style="color:#fff;">Aplikasi Warung Cafe A-WARUNG</strong> dan <strong style="color:#fff;">Aplikasi Toko UMKM A-POS</strong> mulai dari <span class="highlight">Rp 50.000</span>. Rekening pembayaran: BRI <strong style="color:#fff;">789001005408534</strong> a/n PT Mitra Aulia Indonesia.</p>
+      <p style="margin-top:16px;font-size:.8rem;color:var(--muted);">📌 Tersedia juga <strong style="color:#fff;">Aplikasi Warung Cafe A-WARUNG</strong> dan <strong style="color:#fff;">Aplikasi Toko UMKM A-POS</strong>. Rekening pembayaran: BRI <strong style="color:#fff;">789001005408534</strong> a/n PT Mitra Aulia Indonesia.</p>
       <span class="pk-tag t-y">Pricing</span>
     </div>
 
@@ -439,7 +458,7 @@ footer a{color:var(--y);text-decoration:none}
     </div>
 
     <!-- C. BUSINESS DOMAIN -->
-    <div class="pk-card">
+    <div class="pk-card pk-card--wide">
       <div class="pk-num">C</div>
       <div class="pk-icon">🏪</div>
       <h3>Business Domain — Aplikasi Kasir Modern untuk 50+ Jenis Usaha</h3>
@@ -614,16 +633,16 @@ footer a{color:var(--y);text-decoration:none}
           <div class="feat-desc">Dashboard khusus pemilik untuk memantau performa bisnis dari smartphone — tanpa perlu membuka komputer kasir.</div>
         </div>
       </div>
-      <p style="margin-top:16px;font-size:.82rem;color:var(--muted);">📌 Tersedia lebih dari <strong style="color:#fff;">200+ laporan</strong> keuangan dan operasional secara instan — Laba/Rugi, Neraca, Arus Kas, Buku Besar, Histori Bank, Penjualan, Pembelian, Laporan Pajak, dan masih banyak lagi.</p>
+      <p style="margin-top:16px;font-size:.82rem;color:var(--muted);">📌 Tersedia lebih dari <strong style="color:#fff;">200+ laporan</strong> keuangan dan operasional secara instan — Laba/Rugi, Neraca, Arus Kas, Buku Besar, Histori Bank, Penjualan, Pembelian, Laporan Stok, Laporan Expired, Laporan Pajak, dan masih banyak lagi.</p>
       <span class="pk-tag t-b">Product Features</span>
     </div>
 
-    <!-- F. USE CASE DIAGRAM -->
+    <!-- F. USE CASE DIAGRAM — Customer dihapus -->
     <div class="pk-card pk-card--wide">
       <div class="pk-num">F</div>
       <div class="pk-icon">🗂️</div>
       <h3>Diagram Use Case — Sistem Aulia e-POS</h3>
-      <p>Sistem Aulia e-POS menggunakan pendekatan <span class="highlight">role-based access control</span> dengan empat aktor utama. Setiap aktor memiliki hak akses berbeda, namun semua terhubung dalam satu platform terintegrasi. Diagram di bawah merefleksikan fitur aktual yang tersedia di aplikasi.</p>
+      <p>Sistem Aulia e-POS menggunakan pendekatan <span class="highlight">role-based access control</span> dengan tiga aktor utama. Setiap aktor memiliki hak akses berbeda, namun semua terhubung dalam satu platform terintegrasi. Diagram di bawah merefleksikan fitur aktual yang tersedia di aplikasi.</p>
       <div class="uc-diagram">
         <div class="uc-inner">
           <div class="uc-actors">
@@ -638,10 +657,6 @@ footer a{color:var(--y);text-decoration:none}
             <div class="uc-actor">
               <div class="uc-actor-circle" style="border-color:var(--y);background:rgba(255,225,53,.1);">👑</div>
               <div class="uc-actor-lbl" style="color:var(--y);">Owner / Pemilik</div>
-            </div>
-            <div class="uc-actor">
-              <div class="uc-actor-circle" style="border-color:var(--g);background:rgba(10,255,108,.1);">🛍️</div>
-              <div class="uc-actor-lbl" style="color:var(--g);">Customer</div>
             </div>
           </div>
           <div class="uc-system">
@@ -667,20 +682,12 @@ footer a{color:var(--y);text-decoration:none}
               <div class="uc-bubble o">💵 Payroll & Penggajian</div>
               <div class="uc-bubble o">🌐 Kelola Toko Online & Marketplace</div>
               <div class="uc-bubble o">📱 Aplikasi Owner (Mobile)</div>
-
-              <div class="uc-bubble c">🛒 Belanja via Toko Online / Weborder</div>
-              <div class="uc-bubble c">📋 QR Menu (E-Menu)</div>
-              <div class="uc-bubble c">🧾 Terima Struk Digital (WA/Email)</div>
-              <div class="uc-bubble c">🎁 Gunakan Poin Loyalitas</div>
-              <div class="uc-bubble c">📦 Lacak Status Pesanan Online</div>
-              <div class="uc-bubble c">💳 Deposit Pelanggan</div>
             </div>
           </div>
           <div class="uc-legend">
             <div class="uc-leg"><div class="uc-leg-dot" style="background:var(--b);"></div>Kasir — Operasional Harian</div>
             <div class="uc-leg"><div class="uc-leg-dot" style="background:var(--p);"></div>Admin — Manajemen & Konfigurasi</div>
             <div class="uc-leg"><div class="uc-leg-dot" style="background:var(--y);"></div>Owner — Monitoring & Laporan</div>
-            <div class="uc-leg"><div class="uc-leg-dot" style="background:var(--g);"></div>Customer — Interaksi Belanja</div>
           </div>
         </div>
       </div>
@@ -695,8 +702,12 @@ footer a{color:var(--y);text-decoration:none}
       <p>Pertanyaan yang paling sering diajukan oleh calon pengguna dan pengguna aktif Aplikasi Kasir Aulia e-POS dari auliasoft.com. Klik pertanyaan untuk melihat jawaban lengkap.</p>
       <div class="faq-list">
         <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Apa bedanya Promo UMKM Rp 50.000 dengan paket Basic Rp 149.999? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Paket <strong>Promo UMKM Rp 50.000/bulan</strong> adalah pilihan paling terjangkau untuk usaha rintisan, dengan batasan maksimal <strong>500 item produk</strong>. Cocok untuk warung dan UMKM mikro yang baru mulai berjalan. Sedangkan <strong>Basic Rp 149.999</strong> tidak memiliki batasan item dan dilengkapi fitur lebih lengkap seperti Toko Online, CRM Pelanggan, Manajemen Karyawan, dan Pencatatan Keuangan (Invoice, SO, DO).</div>
+        </div>
+        <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">Apa bedanya Aulia e-POS (E-POS) dengan A-POS dan A-WARUNG? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">AuliaSoft menyediakan tiga pilihan aplikasi kasir online: <strong>A-WARUNG</strong> dan <strong>A-POS</strong> tersedia mulai Rp 50.000 untuk usaha sangat kecil. <strong>Aulia e-POS</strong> (Aplikasi Toko UMKM E-POS) tersedia dalam 3 versi — Basic Rp 149.999, Standar Rp 349.999, dan Premium Rp 749.999 — dengan fitur yang jauh lebih lengkap termasuk multi outlet, akuntansi, dan payroll.</div>
+          <div class="faq-a">AuliaSoft menyediakan beberapa pilihan aplikasi kasir online. <strong>A-WARUNG</strong> dan <strong>A-POS</strong> tersedia untuk usaha sangat kecil. <strong>Aulia e-POS</strong> (Aplikasi Toko UMKM E-POS) tersedia dalam 4 versi — Promo UMKM Rp 50.000 (maks. 500 item), Basic Rp 149.999, Standar Rp 349.999, dan Premium Rp 749.999 — dengan fitur yang semakin lengkap di setiap levelnya.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">Apakah aplikasi kasir ini bisa digunakan tanpa koneksi internet? <span class="faq-arrow">›</span></div>
@@ -735,8 +746,23 @@ footer a{color:var(--y);text-decoration:none}
       <div class="pk-num">H</div>
       <div class="pk-icon">🗺️</div>
       <h3>Product Roadmap — Fitur Tiap Versi Aulia e-POS</h3>
-      <p>Aulia e-POS dikembangkan secara bertahap dengan tiga level versi yang semakin lengkap. Setiap versi dapat diupgrade kapan saja seiring pertumbuhan bisnis kamu — dari kasir tunggal hingga ekosistem multi-outlet omnichannel.</p>
-      <div class="rm-grid">
+      <p>Aulia e-POS dikembangkan secara bertahap dengan empat level versi yang semakin lengkap. Setiap versi dapat diupgrade kapan saja seiring pertumbuhan bisnis kamu — dari kasir tunggal hingga ekosistem multi-outlet omnichannel.</p>
+      <div class="rm-grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="rm-col">
+          <div class="rm-head">
+            <div class="rm-tier-badge" style="background:rgba(255,140,66,.2);color:var(--o);">🔥 PROMO UMKM</div>
+            <div class="rm-title">Kasir Dasar</div>
+            <div class="rm-price">Rp 50.000 / bulan</div>
+          </div>
+          <ul class="rm-list">
+            <li>Single outlet (1 toko/lokasi)</li>
+            <li>Aplikasi Kasir Online</li>
+            <li>Manajemen Inventori (dasar)</li>
+            <li>Laporan Penjualan</li>
+            <li>Digital Payment QRIS (statis)</li>
+            <li style="color:var(--o);">⚠ Maks. 500 item produk</li>
+          </ul>
+        </div>
         <div class="rm-col">
           <div class="rm-head">
             <div class="rm-tier-badge" style="background:rgba(255,59,107,.2);color:var(--r);">BASIC</div>
@@ -771,7 +797,7 @@ footer a{color:var(--y);text-decoration:none}
             <li>Akuntansi Lengkap (Faktur, CoA, Auto Posting, Laporan Akuntansi)</li>
             <li>QRIS Dynamic, EDC (kartu debit/kredit)</li>
             <li>Struk Digital: WA, SMS, Email</li>
-            <li>Aplikasi Owner & Order Online</li>
+            <li>Aplikasi Owner &amp; Order Online</li>
           </ul>
         </div>
         <div class="rm-col">
@@ -783,7 +809,7 @@ footer a{color:var(--y);text-decoration:none}
           <ul class="rm-list">
             <li>Multi outlet + semua fitur Standard</li>
             <li>Toko Online: Website, Webtree, Weborder, Domain Premium, Shopee, Tokopedia, Grabmart, Omnichannel</li>
-            <li>Kasir: reservasi & produk jasa, leveling komisi, serial number, batch number, grosir</li>
+            <li>Kasir: reservasi &amp; produk jasa, leveling komisi, serial number, batch number, grosir</li>
             <li>Inventori: serial number, batch number, permintaan barang, pengiriman pembelian</li>
             <li>Payroll lengkap: shift, struktur gaji, penggajian, transfer gaji</li>
             <li>Aulia Teams: absensi foto geolokasi, ePayslip, broadcast pengumuman</li>
@@ -796,7 +822,7 @@ footer a{color:var(--y);text-decoration:none}
     </div>
 
     <!-- I. CUSTOMIZATION -->
-    <div class="pk-card">
+    <div class="pk-card pk-card--wide">
       <div class="pk-num">I</div>
       <div class="pk-icon">🛠️</div>
       <h3>Layanan Kustomisasi Aulia e-POS</h3>
@@ -935,7 +961,7 @@ footer a{color:var(--y);text-decoration:none}
       <div class="process-grid">
         <div class="proc-card"><div class="proc-num">1</div><div class="proc-icon">💬</div><div class="proc-title">Konsultasi via WhatsApp</div><div class="proc-desc">Hubungi tim AuliaSoft di +62 812-4194-5881. Ceritakan jenis usaha dan kebutuhan fitur. Gratis, tanpa tekanan, tim siap membantu 24/7.</div></div>
         <div class="proc-card"><div class="proc-num">2</div><div class="proc-icon">🖥️</div><div class="proc-title">Demo Produk Langsung</div><div class="proc-desc">Tim kami mengadakan demo aplikasi secara langsung, menjelaskan fitur-fitur yang relevan dengan jenis usaha dan skala bisnis kamu.</div></div>
-        <div class="proc-card"><div class="proc-num">3</div><div class="proc-icon">✅</div><div class="proc-title">Pilih Produk & Versi</div><div class="proc-desc">Pilih produk kasir yang sesuai jenis usaha (50+ varian tersedia) dan pilih versi Basic/Standar/Premium yang paling sesuai anggaran.</div></div>
+        <div class="proc-card"><div class="proc-num">3</div><div class="proc-icon">✅</div><div class="proc-title">Pilih Produk & Versi</div><div class="proc-desc">Pilih produk kasir yang sesuai jenis usaha (50+ varian tersedia) dan pilih versi Promo UMKM/Basic/Standar/Premium yang paling sesuai anggaran.</div></div>
         <div class="proc-card"><div class="proc-num">4</div><div class="proc-icon">🎓</div><div class="proc-title">Pelatihan Onboarding</div><div class="proc-desc">Setelah instalasi, tim AuliaSoft melakukan pelatihan penggunaan untuk kasir dan admin agar langsung bisa beroperasi optimal.</div></div>
       </div>
 
@@ -956,7 +982,7 @@ footer a{color:var(--y);text-decoration:none}
         <li><strong>Kebijakan Privasi Data</strong> — Data usaha kamu adalah milik kamu sepenuhnya. AuliaSoft tidak menjual atau berbagi data klien kepada pihak ketiga manapun.</li>
         <li><strong>Mitra Resmi Kemenkop RI</strong> — AuliaSoft adalah mitra resmi Kementerian Koperasi RI, tergabung dalam ekosistem Onecoop, Gantari, Simkopdes, dan Cooplink.</li>
       </ul>
-      <span class="pk-tag t-y">Processes & Policies</span>
+      <span class="pk-tag t-y">Processes &amp; Policies</span>
     </div>
 
   </div><!-- end pk-grid -->
