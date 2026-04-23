@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AuliaSoft — No Cap, Bisnis Lo Makin Lit 🔥</title>
+<title>AuliaSoft — Solusi Digital Bisnis Indonesia 🔥</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -260,12 +260,13 @@ nav{
 .pk-card h3{
   font-family:'Syne',sans-serif;
   font-size:1rem;font-weight:800;
-  color:#fff;margin-bottom:8px;
+  color:#fff;margin-bottom:10px;
   letter-spacing:-.02em;
 }
-.pk-card p{font-size:.875rem;color:var(--muted);line-height:1.65}
+.pk-card p{font-size:.875rem;color:var(--muted);line-height:1.75}
+.pk-card p + p{margin-top:10px}
 .pk-tag{
-  display:inline-flex;margin-top:14px;
+  display:inline-flex;margin-top:16px;
   font-family:'Space Mono',monospace;
   font-size:.6rem;font-weight:700;
   padding:3px 10px;border-radius:2px;
@@ -276,6 +277,25 @@ nav{
 .t-p{background:rgba(192,132,252,.15);color:var(--p)}
 .t-r{background:rgba(255,59,107,.15);color:var(--r)}
 .t-b{background:rgba(56,189,248,.15);color:var(--b)}
+
+/* HIGHLIGHT TEXT */
+.pk-card strong{color:#fff}
+.pk-card .highlight{color:var(--y);font-weight:600}
+
+/* INFO LIST */
+.info-list{
+  margin-top:12px;
+  display:flex;flex-direction:column;gap:6px;
+}
+.info-list li{
+  font-size:.82rem;color:var(--muted);
+  list-style:none;
+  display:flex;align-items:flex-start;gap:8px;
+  line-height:1.55;
+}
+.info-list li::before{
+  content:'▸';color:var(--g);flex-shrink:0;font-size:.7rem;margin-top:2px;
+}
 
 /* USE CASE */
 .pk-card--wide{grid-column:1 / -1}
@@ -310,20 +330,19 @@ nav{
 }
 
 .use-case-img {
-  display: block;      /* Wajib ada agar margin auto bekerja */
-  margin-left: auto;   /* Center horizontal */
-  margin-right: auto;  /* Center horizontal */
-  margin-top: 24px;    /* Jarak atas */
-  margin-bottom: 32px; /* Jarak bawah */
-  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+  margin-bottom: 32px;
   width: 100%;
-  max-width: 700px;    /* Ukuran maksimal agar tidak terlalu memenuhi layar */
+  max-width: 700px;
   height: auto;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: #fff;    /* Menjaga keterbacaan diagram */
+  background: #fff;
   padding: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Efek bayangan biar 'pop-out' */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* PRODUCTS DARK BAND */
@@ -480,15 +499,15 @@ footer a{color:var(--y);text-decoration:none}
   <div class="hero-eyebrow">Solusi Digital Indonesia</div>
 
   <h1>
-    Bisnis Lo
-    <em class="line2">Ga Perlu</em>
-    <span class="line3">Ribet Lagi</span>
+    Bisnis Kamu
+    <em class="line2">Tidak Perlu</em>
+    <span class="line3">Rumit Lagi</span>
   </h1>
 
-  <p class="hero-sub">Aplikasi manajemen bisnis all-in-one buat Koperasi, UMKM, BUMDes, Mini Bank, LAZIS — langsung jalan, no drama.</p>
+  <p class="hero-sub">Aplikasi manajemen bisnis all-in-one untuk Koperasi, UMKM, BUMDes, Mini Bank, dan LAZIS — langsung berjalan, tanpa hambatan berarti.</p>
 
   <div class="hero-actions">
-    <a href="https://www.auliasoft.com" class="btn-z solid" target="_blank">Explore Produk ↗</a>
+    <a href="https://www.auliasoft.com" class="btn-z solid" target="_blank">Jelajahi Produk ↗</a>
     <a href="https://wa.me/6281241945881" class="btn-z ghost" target="_blank">Konsultasi Gratis</a>
   </div>
 
@@ -523,86 +542,159 @@ footer a{color:var(--y);text-decoration:none}
 <div class="sec-wrap">
   <div class="reveal">
     <div class="sec-label">Product Knowledge</div>
-    <div class="sec-title">12 Hal yang Lo<br/>Wajib Tau tentang <em>AuliaSoft</em></div>
+    <div class="sec-title">12 Hal yang Wajib<br/>Kamu Ketahui tentang <em>AuliaSoft</em></div>
   </div>
 
   <div class="pk-grid reveal">
 
+    <!-- 01 PRICING -->
     <div class="pk-card">
       <div class="pk-num">01</div>
       <div class="pk-icon">💸</div>
-      <h3>Harga Gak Bikin Dompet Nangis</h3>
-      <p>Mulai dari <strong style="color:#fff">Rp 1.500.000</strong> udah dapet aplikasi bisnis lengkap. No hidden fee, no subscription trap. Bayar sekali, pake selamanya.</p>
+      <h3>Harga Terjangkau, Nilai Maksimal</h3>
+      <p>AuliaSoft hadir dengan harga yang sangat kompetitif, dimulai dari <strong>Rp 1.500.000</strong> untuk satu lisensi aplikasi bisnis lengkap. Tidak ada biaya berlangganan bulanan yang membebani, tidak ada biaya tersembunyi yang mengejutkan.</p>
+      <p>Dengan skema <span class="highlight">bayar sekali, gunakan selamanya</span>, investasi kamu terlindungi jangka panjang. Bandingkan dengan solusi serupa di pasaran yang mengenakan biaya ratusan ribu hingga jutaan rupiah per bulan — AuliaSoft jauh lebih hemat dan menguntungkan untuk usaha skala kecil hingga menengah.</p>
+      <ul class="info-list">
+        <li>Harga mulai Rp 1.500.000 (lisensi permanen)</li>
+        <li>Tidak ada biaya berlangganan bulanan</li>
+        <li>Tidak ada biaya per-pengguna tambahan</li>
+        <li>Garansi resmi selama 1,5 tahun termasuk dalam harga</li>
+      </ul>
       <span class="pk-tag t-y">Pricing</span>
     </div>
 
+    <!-- 02 FAQ -->
     <div class="pk-card">
       <div class="pk-num">02</div>
       <div class="pk-icon">🙋</div>
-      <h3>FAQ — Jawaban Tanpa Basa-basi</h3>
-      <p>Perlu server? Nope. Offline jalan? Yep. Ada demo? Tentu. Sistem hybrid kami support mode online & offline tanpa repot setup server khusus. Pembayaranya Lewat Mana? untuk pembayaran 
-REK. BANK
-
-BRI 789001005408534 an PT MITRA AULIA INDONESIA.</p>
+      <h3>Pertanyaan Umum & Jawabannya</h3>
+      <p>Banyak calon pengguna bertanya hal yang sama sebelum memutuskan menggunakan AuliaSoft. Berikut jawaban lugas dari pertanyaan yang paling sering muncul:</p>
+      <ul class="info-list">
+        <li><strong>Apakah perlu server khusus?</strong> — Tidak. Sistem kami berjalan secara hybrid, baik secara online maupun offline tanpa infrastruktur server yang rumit.</li>
+        <li><strong>Apakah bisa digunakan tanpa internet?</strong> — Ya, mode offline tersedia dan data akan tersinkronisasi otomatis saat koneksi tersedia.</li>
+        <li><strong>Apakah tersedia demo gratis?</strong> — Tentu saja. Hubungi tim kami untuk sesi demonstrasi langsung tanpa biaya.</li>
+        <li><strong>Bagaimana cara pembayaran?</strong> — Transfer ke rekening BRI <strong>789001005408534</strong> atas nama <strong>PT Mitra Aulia Indonesia</strong>.</li>
+        <li><strong>Apakah ada panduan penggunaan?</strong> — Ya, termasuk pelatihan onboarding setelah instalasi.</li>
+      </ul>
       <span class="pk-tag t-g">FAQs</span>
     </div>
 
+    <!-- 03 BRAND -->
     <div class="pk-card">
       <div class="pk-num">03</div>
       <div class="pk-icon">🏢</div>
-      <h3>PT AuliaSoft — Bukan Kaleng-Kaleng</h3>
-      <p>Perusahaan teknologi Indonesia yang mitra resmi Kementerian Koperasi RI, Onecoop, Gantari, dan Cooplink. Udah terbukti, bukan baru coba-coba.</p>
+      <h3>PT AuliaSoft — Perusahaan Teknologi Terpercaya</h3>
+      <p>AuliaSoft bukan sekadar startup baru. Kami adalah perusahaan teknologi Indonesia yang telah membangun rekam jejak nyata di industri digitalisasi koperasi dan UMKM nasional.</p>
+      <p>Sebagai <span class="highlight">mitra resmi Kementerian Koperasi RI</span>, kami telah mendapatkan kepercayaan dari lembaga pemerintah tertinggi di bidang perkoperasian. Selain itu, AuliaSoft juga tergabung dalam ekosistem digital mitra strategis seperti <strong>Onecoop, Gantari,</strong> dan <strong>Cooplink</strong>.</p>
+      <ul class="info-list">
+        <li>Badan hukum resmi PT Mitra Aulia Indonesia</li>
+        <li>Mitra resmi Kementerian Koperasi RI</li>
+        <li>Bergabung dalam ekosistem Onecoop & Cooplink</li>
+        <li>Tim pengembang berpengalaman di industri keuangan mikro</li>
+        <li>Berkomitmen pada kepatuhan regulasi koperasi nasional</li>
+      </ul>
       <span class="pk-tag t-p">Brand</span>
     </div>
 
+    <!-- 04 ROADMAP -->
     <div class="pk-card">
       <div class="pk-num">04</div>
       <div class="pk-icon">🗺️</div>
-      <h3>Roadmap yang Terus Nge-level Up</h3>
-      <p>Dari integrasi payroll karyawan, Core Banking System, sampe ekosistem digital Kopdes KDMP — semua dalam satu platform yang terus berkembang.</p>
+      <h3>Roadmap Pengembangan Berkelanjutan</h3>
+      <p>AuliaSoft tidak berhenti berkembang. Kami memiliki peta jalan produk yang terstruktur, memastikan bahwa setiap pengguna mendapatkan manfaat dari inovasi terbaru tanpa harus berganti platform.</p>
+      <p>Sejumlah fitur besar yang sedang dan akan segera hadir antara lain:</p>
+      <ul class="info-list">
+        <li><strong>Modul Payroll Karyawan</strong> — Penggajian terintegrasi langsung dengan data transaksi usaha</li>
+        <li><strong>Core Banking System (CBS)</strong> — Kapabilitas setara perbankan untuk KSP skala besar</li>
+        <li><strong>Ekosistem Kopdes KDMP</strong> — Platform digital untuk Koperasi Desa modern</li>
+        <li><strong>Integrasi API Perbankan</strong> — Koneksi langsung ke sistem payment gateway nasional</li>
+        <li><strong>Dashboard Analitik Bisnis</strong> — Laporan berbasis data untuk pengambilan keputusan strategis</li>
+      </ul>
       <span class="pk-tag t-b">Roadmap</span>
     </div>
 
+    <!-- 05 BUSINESS DOMAIN -->
     <div class="pk-card">
       <div class="pk-num">05</div>
       <div class="pk-icon">🏪</div>
-      <h3>Segmen Bisnis Lo Pasti Ada Disini</h3>
-      <p>KSP/KSPPS/BMT, Toko, BUMDes, Mini Bank, LAZIS, LKM/LKMS, Kopdes KDMP — semua segmen kita support dengan solusi yang pas.</p>
+      <h3>Segmen Bisnis yang Didukung</h3>
+      <p>AuliaSoft dirancang untuk melayani berbagai segmen usaha yang memiliki kebutuhan manajemen keuangan dan operasional yang kompleks. Setiap modul disesuaikan dengan karakteristik dan regulasi masing-masing jenis lembaga.</p>
+      <ul class="info-list">
+        <li><strong>KSP / KSPPS / BMT</strong> — Koperasi simpan pinjam konvensional maupun syariah</li>
+        <li><strong>Toko & Mini Market</strong> — Sistem kasir (POS) dengan manajemen inventori lengkap</li>
+        <li><strong>BUMDes</strong> — Badan usaha milik desa dengan pelaporan keuangan transparan</li>
+        <li><strong>Mini Bank KSPPS</strong> — Layanan keuangan setara bank untuk komunitas lokal</li>
+        <li><strong>LAZIS</strong> — Pengelolaan zakat, infak, sedekah, dan wakaf secara digital</li>
+        <li><strong>LKM / LKMS</strong> — Lembaga keuangan mikro konvensional dan syariah</li>
+        <li><strong>Kopdes KDMP</strong> — Koperasi Desa dalam program Koperasi Desa Merah Putih</li>
+        <li><strong>Counter HP & Toko Optik</strong> — Usaha ritel spesialis dengan kebutuhan khusus</li>
+      </ul>
       <span class="pk-tag t-r">Business Domain</span>
     </div>
 
+    <!-- 06 CUSTOMIZATION -->
     <div class="pk-card">
       <div class="pk-num">06</div>
       <div class="pk-icon">🛠️</div>
-      <h3>Custom Sesuai Vibe Bisnis Lo</h3>
-      <p>Bisnis lo unik? Kita punya layanan Keuangan/Custom yang dirancang sesuai alur bisnis spesifik lo. Tim dev berpengalaman siap eksekusi.</p>
+      <h3>Layanan Kustomisasi Sesuai Kebutuhan</h3>
+      <p>Setiap bisnis memiliki alur operasional yang unik. AuliaSoft memahami hal ini dan menyediakan layanan pengembangan kustom bagi klien yang membutuhkan fitur atau integrasi di luar paket standar yang tersedia.</p>
+      <p>Tim pengembang kami yang berpengalaman siap merancang solusi teknis yang disesuaikan secara penuh dengan kebutuhan spesifik usaha kamu, mulai dari alur persetujuan pinjaman yang kompleks hingga pelaporan regulasi khusus daerah.</p>
+      <ul class="info-list">
+        <li>Analisis kebutuhan bisnis secara mendalam</li>
+        <li>Pengembangan fitur khusus sesuai alur operasional</li>
+        <li>Integrasi dengan sistem yang sudah berjalan</li>
+        <li>Pembuatan laporan keuangan sesuai format regulasi</li>
+        <li>Pelatihan pengguna pasca-implementasi</li>
+      </ul>
       <span class="pk-tag t-y">Customization</span>
     </div>
 
+    <!-- 07 TARGET AUDIENCE -->
     <div class="pk-card">
       <div class="pk-num">07</div>
       <div class="pk-icon">🎯</div>
-      <h3>Siapa Aja yang Cocok Pake Ini?</h3>
-      <p>UMKM, pengurus koperasi, pengelola BUMDes, petugas LAZIS, manajemen lembaga keuangan mikro — yang mau move on dari catat manual ke digital.</p>
+      <h3>Siapa yang Paling Tepat Menggunakan AuliaSoft?</h3>
+      <p>AuliaSoft dirancang untuk para pelaku usaha dan pengelola lembaga keuangan yang ingin bertransformasi dari sistem manual ke sistem digital yang andal, tanpa harus menjadi ahli teknologi terlebih dahulu.</p>
+      <p>Pengguna ideal kami adalah mereka yang memimpin atau mengelola operasional lembaga dan menyadari bahwa pencatatan manual sudah tidak lagi memadai untuk skala usaha yang terus berkembang.</p>
+      <ul class="info-list">
+        <li>Pengurus dan pengelola koperasi (KSP, KSPPS, BMT)</li>
+        <li>Pemilik UMKM, toko, dan usaha ritel</li>
+        <li>Direktur atau manajer BUMDes</li>
+        <li>Pengelola LAZIS dan lembaga amil zakat</li>
+        <li>Manajemen Lembaga Keuangan Mikro (LKM/LKMS)</li>
+        <li>Petugas keuangan yang ingin efisiensi laporan</li>
+      </ul>
       <span class="pk-tag t-g">Target Audience</span>
     </div>
 
+    <!-- 08 VS KOMPETITOR -->
     <div class="pk-card">
       <div class="pk-num">08</div>
       <div class="pk-icon">⚡</div>
-      <h3>Kenapa AuliaSoft Beda dari yang Lain?</h3>
-      <p>Harga lebih worth it, garansi 1,5 tahun, sistem hybrid on+offline, support WA 24/7, dan ekosistem mitra yang udah tersebar luas di Indonesia.</p>
+      <h3>Apa yang Membedakan AuliaSoft dari Solusi Lain?</h3>
+      <p>Di tengah banyaknya pilihan perangkat lunak manajemen usaha di Indonesia, AuliaSoft memiliki sejumlah keunggulan yang sulit ditandingi, terutama untuk segmen koperasi dan lembaga keuangan mikro.</p>
+      <ul class="info-list">
+        <li><strong>Harga paling kompetitif</strong> — Lisensi permanen mulai Rp 1.500.000, tanpa langganan bulanan</li>
+        <li><strong>Garansi resmi 1,5 tahun</strong> — Perlindungan investasi jangka panjang yang nyata</li>
+        <li><strong>Sistem hybrid online & offline</strong> — Tetap beroperasi meski koneksi internet tidak stabil</li>
+        <li><strong>Dukungan 24/7 via WhatsApp</strong> — Tim support siap membantu kapan pun dibutuhkan</li>
+        <li><strong>Ekosistem mitra yang luas</strong> — Terintegrasi dengan Onecoop, Cooplink, dan Simkopdes</li>
+        <li><strong>Spesialisasi di segmen koperasi</strong> — Bukan software generik, melainkan dirancang khusus untuk kebutuhan koperasi Indonesia</li>
+      </ul>
       <span class="pk-tag t-p">vs Kompetitor</span>
     </div>
 
-    <!-- USE CASE WIDE CARD -->
+    <!-- 09 USE CASE — WIDE -->
     <div class="pk-card pk-card--wide">
-    <div class="pk-num">09</div>
+      <div class="pk-num">09</div>
       <div class="pk-icon">⚙️</div>
-      <h3>Fitur per Role — Alur Sistem</h3>
-      <p>Sistem dirancang untuk 4 role utama dengan alur kerja yang jelas dan terintegrasi seperti diagram di bawah ini.</p>
+      <h3>Fitur per Role — Alur Sistem & Use Case</h3>
+      <p>Sistem AuliaSoft dirancang dengan pendekatan berbasis peran (role-based access), memastikan setiap pengguna hanya mengakses fitur yang relevan dengan tanggung jawabnya. Terdapat empat peran utama yang terintegrasi dalam satu alur kerja yang kohesif.</p>
+      <p>Diagram berikut menggambarkan secara visual hubungan antar-peran dan fitur-fitur yang tersedia dalam sistem:</p>
 
-      <img src="WhatsApp Image 2026-04-22 at 18.02.57.jpeg" alt="Diagram Use Case AuliaSoft" class="use-case-img">
+      <img src="WhatsApp Image 2026-04-22 at 18.02.57.jpeg" alt="Diagram Use Case Sistem AuliaSoft — Alur Peran Kasir, Admin, Pemilik, dan Customer" class="use-case-img">
+
+      <p>Pilih salah satu peran di bawah untuk melihat daftar fitur yang tersedia secara detail:</p>
 
       <div class="uc-tabs">
         <button class="uc-tab active" onclick="showActor('kasir',this)">// KASIR</button>
@@ -613,65 +705,97 @@ BRI 789001005408534 an PT MITRA AULIA INDONESIA.</p>
 
       <div class="uc-panel" id="uc-kasir">
         <div class="uc-items">
-          <div class="uc-item"><span class="uc-dot"></span>Login ke sistem</div>
-          <div class="uc-item"><span class="uc-dot"></span>Transaksi Pembelian</div>
-          <div class="uc-item"><span class="uc-dot"></span>Transaksi Penjualan</div>
-          <div class="uc-item"><span class="uc-dot"></span>Melihat Data Produk</div>
-          <div class="uc-item"><span class="uc-dot ext"></span>Bayar via QRIS / Cash <span class="uc-badge">extend</span></div>
-          <div class="uc-item"><span class="uc-dot ext"></span>Pembayaran Kartu Kredit <span class="uc-badge">extend</span></div>
-          <div class="uc-item"><span class="uc-dot"></span>Logout</div>
+          <div class="uc-item"><span class="uc-dot"></span>Login ke sistem dengan autentikasi aman</div>
+          <div class="uc-item"><span class="uc-dot"></span>Mencatat transaksi pembelian dari supplier</div>
+          <div class="uc-item"><span class="uc-dot"></span>Memproses transaksi penjualan ke pelanggan</div>
+          <div class="uc-item"><span class="uc-dot"></span>Melihat & mencari data produk secara real-time</div>
+          <div class="uc-item"><span class="uc-dot ext"></span>Pembayaran via QRIS / Tunai <span class="uc-badge">extend</span></div>
+          <div class="uc-item"><span class="uc-dot ext"></span>Pembayaran via Kartu Kredit/Debit <span class="uc-badge">extend</span></div>
+          <div class="uc-item"><span class="uc-dot"></span>Mencetak struk & bukti transaksi</div>
+          <div class="uc-item"><span class="uc-dot"></span>Logout dengan aman dari sistem</div>
         </div>
       </div>
       <div class="uc-panel" id="uc-admin" style="display:none">
         <div class="uc-items">
-          <div class="uc-item"><span class="uc-dot"></span>Mengelola Pembayaran</div>
-          <div class="uc-item"><span class="uc-dot"></span>Mengelola Pengguna</div>
-          <div class="uc-item"><span class="uc-dot"></span>Manajemen Karyawan</div>
-          <div class="uc-item"><span class="uc-dot"></span>Kelola CRM & Loyalitas</div>
-          <div class="uc-item"><span class="uc-dot"></span>Manajemen Pembayaran</div>
+          <div class="uc-item"><span class="uc-dot"></span>Mengelola dan memverifikasi pembayaran</div>
+          <div class="uc-item"><span class="uc-dot"></span>Mengelola akun & hak akses pengguna</div>
+          <div class="uc-item"><span class="uc-dot"></span>Manajemen data karyawan & absensi</div>
+          <div class="uc-item"><span class="uc-dot"></span>Mengelola program CRM & loyalitas pelanggan</div>
+          <div class="uc-item"><span class="uc-dot"></span>Konfigurasi metode & gateway pembayaran</div>
+          <div class="uc-item"><span class="uc-dot"></span>Memantau log aktivitas sistem</div>
+          <div class="uc-item"><span class="uc-dot"></span>Mengelola data anggota koperasi</div>
         </div>
       </div>
       <div class="uc-panel" id="uc-pemilik" style="display:none">
         <div class="uc-items">
-          <div class="uc-item"><span class="uc-dot"></span>Kelola Data Supplier</div>
-          <div class="uc-item"><span class="uc-dot"></span>Kelola Data Produk</div>
-          <div class="uc-item"><span class="uc-dot"></span>Laporan Penjualan</div>
-          <div class="uc-item"><span class="uc-dot"></span>Laporan Pembelian</div>
-          <div class="uc-item"><span class="uc-dot"></span>Logout</div>
+          <div class="uc-item"><span class="uc-dot"></span>Mengelola database supplier & vendor</div>
+          <div class="uc-item"><span class="uc-dot"></span>Mengelola katalog & harga produk</div>
+          <div class="uc-item"><span class="uc-dot"></span>Melihat laporan penjualan harian/bulanan</div>
+          <div class="uc-item"><span class="uc-dot"></span>Melihat laporan pembelian & pengeluaran</div>
+          <div class="uc-item"><span class="uc-dot"></span>Memantau stok & peringatan stok menipis</div>
+          <div class="uc-item"><span class="uc-dot"></span>Analisis keuntungan & margin per produk</div>
+          <div class="uc-item"><span class="uc-dot"></span>Mengekspor laporan ke format Excel/PDF</div>
         </div>
       </div>
       <div class="uc-panel" id="uc-customer" style="display:none">
         <div class="uc-items">
-          <div class="uc-item"><span class="uc-dot"></span>Melihat Halaman Produk</div>
-          <div class="uc-item"><span class="uc-dot"></span>Kelola Keranjang Belanja</div>
-          <div class="uc-item"><span class="uc-dot"></span>Melacak Pesanan</div>
-          <div class="uc-item"><span class="uc-dot ext"></span>Notif Status Pesanan <span class="uc-badge">include</span></div>
+          <div class="uc-item"><span class="uc-dot"></span>Menelusuri halaman & katalog produk</div>
+          <div class="uc-item"><span class="uc-dot"></span>Mengelola keranjang belanja secara mandiri</div>
+          <div class="uc-item"><span class="uc-dot"></span>Melacak status & riwayat pesanan</div>
+          <div class="uc-item"><span class="uc-dot ext"></span>Notifikasi status pesanan otomatis <span class="uc-badge">include</span></div>
+          <div class="uc-item"><span class="uc-dot"></span>Melihat riwayat transaksi & poin loyalitas</div>
         </div>
       </div>
       <span class="pk-tag t-b" style="margin-top:18px">Product Features</span>
     </div>
 
+    <!-- 10 ECOSYSTEM -->
     <div class="pk-card">
       <div class="pk-num">10</div>
       <div class="pk-icon">🔗</div>
-      <h3>Ekosistem yang Udah Terhubung</h3>
-      <p>Lengkapi dengan Jasa Web dan Hardware dari AuliaSoft. Terintegrasi dengan Simkopdes, Onecoop, dan Cooplink untuk kapabilitas yang lebih luas.</p>
+      <h3>Ekosistem Digital yang Saling Terhubung</h3>
+      <p>AuliaSoft bukan sekadar aplikasi berdiri sendiri. Kami merupakan bagian dari ekosistem digital yang lebih luas, memberikan kamu akses ke berbagai layanan dan integrasi tambahan yang memperkuat kapabilitas operasional usaha kamu.</p>
+      <ul class="info-list">
+        <li><strong>Jasa Pengembangan Web</strong> — Website profil usaha atau toko online yang terintegrasi dengan sistem</li>
+        <li><strong>Pengadaan Hardware</strong> — Perangkat kasir, printer struk, barcode scanner, dan QRIS terminal</li>
+        <li><strong>Simkopdes</strong> — Sistem informasi koperasi desa terintegrasi</li>
+        <li><strong>Onecoop</strong> — Platform digital koperasi nasional dari Kemenkop RI</li>
+        <li><strong>Cooplink</strong> — Jaringan koperasi untuk sharing data dan kolaborasi antar lembaga</li>
+        <li><strong>Payment Gateway</strong> — Integrasi QRIS dan berbagai metode pembayaran digital</li>
+      </ul>
       <span class="pk-tag t-r">Ecosystem</span>
     </div>
 
+    <!-- 11 USE CASES REAL -->
     <div class="pk-card">
       <div class="pk-num">11</div>
       <div class="pk-icon">💼</div>
-      <h3>Real Talk: Pengguna Nyata, Hasil Nyata</h3>
-      <p>Koperasi desa yang tadinya manual kini kelola ratusan anggota secara digital. Toko sembako pantau stok real-time. LAZIS bikin laporan dalam menit.</p>
+      <h3>Pengguna Nyata, Manfaat yang Terbukti</h3>
+      <p>Nilai sebuah software dibuktikan bukan dari klaim promosi, melainkan dari dampak nyata di lapangan. Berikut adalah gambaran nyata bagaimana AuliaSoft mengubah cara kerja berbagai jenis usaha di Indonesia:</p>
+      <ul class="info-list">
+        <li><strong>Koperasi Desa</strong> — Yang semula mencatat simpan pinjam ratusan anggota secara manual kini mengelola semuanya secara digital dengan laporan otomatis setiap bulan.</li>
+        <li><strong>Toko Sembako</strong> — Pemilik toko kini dapat memantau stok secara real-time dan menerima notifikasi otomatis saat stok barang hampir habis.</li>
+        <li><strong>LAZIS</strong> — Tim pengelola zakat membuat laporan distribusi dana yang transparan hanya dalam hitungan menit, bukan hari.</li>
+        <li><strong>BUMDes</strong> — Pengelola BUMDes dapat menampilkan laporan keuangan yang akuntabel kepada pemerintah desa tanpa perlu akuntan eksternal.</li>
+        <li><strong>BMT Syariah</strong> — Akad pembiayaan syariah dikelola dengan modul yang sesuai prinsip syariah dan mudah diaudit.</li>
+      </ul>
       <span class="pk-tag t-y">Use Cases</span>
     </div>
 
+    <!-- 12 HOW TO ORDER -->
     <div class="pk-card">
       <div class="pk-num">12</div>
       <div class="pk-icon">📋</div>
-      <h3>Cara Order — Simpel Banget</h3>
-      <p>Chat WA → Konsultasi → Instalasi & onboarding → Garansi resmi 1,5 tahun. Support 24/7. Pengiriman ke seluruh Indonesia, fast & aman.</p>
+      <h3>Cara Pemesanan — Mudah dan Cepat</h3>
+      <p>Kami merancang proses pemesanan sesederhana mungkin agar kamu bisa segera fokus pada bisnis, bukan pada proses administrasi yang memakan waktu. Berikut adalah langkah-langkah pemesanan AuliaSoft:</p>
+      <ul class="info-list">
+        <li><strong>Langkah 1 — Hubungi Kami</strong> — Chat via WhatsApp ke <strong>+62 812-4194-5881</strong> untuk memulai proses konsultasi awal.</li>
+        <li><strong>Langkah 2 — Konsultasi Gratis</strong> — Tim kami akan menganalisis kebutuhan spesifik usaha kamu dan merekomendasikan produk yang paling sesuai.</li>
+        <li><strong>Langkah 3 — Pembayaran</strong> — Transfer ke rekening BRI <strong>789001005408534</strong> a/n PT Mitra Aulia Indonesia. Kami akan mengirimkan invoice resmi.</li>
+        <li><strong>Langkah 4 — Instalasi & Onboarding</strong> — Tim teknis kami melakukan instalasi dan konfigurasi sistem, serta pelatihan penggunaan untuk tim kamu.</li>
+        <li><strong>Langkah 5 — Garansi & Support</strong> — Nikmati garansi resmi 1,5 tahun dan dukungan teknis 24/7 via WhatsApp selama masa penggunaan.</li>
+      </ul>
+      <p style="margin-top:12px">Pengiriman dan instalasi melayani seluruh wilayah Indonesia.</p>
       <span class="pk-tag t-g">How to Order</span>
     </div>
 
@@ -683,17 +807,17 @@ BRI 789001005408534 an PT MITRA AULIA INDONESIA.</p>
   <div class="products-inner">
     <div class="reveal">
       <div class="sec-label">Produk Unggulan</div>
-      <div class="sec-title">Pilih <em>Aplikasi</em><br/>yang Pas buat Lo</div>
+      <div class="sec-title">Pilih <em>Aplikasi</em><br/>yang Tepat untuk Kamu</div>
     </div>
     <div class="prod-grid reveal">
-      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">Koperasi KSP</div><div class="prod-desc">Ekosistem digital hybrid buat operasional koperasi simpan pinjam.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">KSP Karyawan</div><div class="prod-desc">Solusi digital hybrid terintegrasi payroll untuk koperasi karyawan.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">KSPPS BMT</div><div class="prod-desc">Solusi syariah untuk operasional BMT yang aman dan terintegrasi.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Mini Bank</div><div class="prod-name">Mini Bank KSPPS</div><div class="prod-desc">Core Banking System untuk KSP besar yang mau layanan setara bank.</div><div class="prod-price">Rp 2.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Mini Market</div><div class="prod-desc">Sistem POS minimarket modern dengan fitur inventory lengkap.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Toko Sembako</div><div class="prod-desc">Manajemen toko kelontong & sembako dengan kasir digital.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Toko Optik</div><div class="prod-desc">POS kacamata dengan prescription management & laporan penjualan.</div><div class="prod-price">Rp 1.500.000</div></div>
-      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Counter HP</div><div class="prod-desc">Sistem POS counter handphone dengan fitur device tracking.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">Koperasi KSP</div><div class="prod-desc">Ekosistem digital hybrid untuk operasional koperasi simpan pinjam konvensional secara menyeluruh.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">KSP Karyawan</div><div class="prod-desc">Solusi digital hybrid terintegrasi dengan modul payroll untuk koperasi karyawan perusahaan.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Koperasi</div><div class="prod-name">KSPPS BMT</div><div class="prod-desc">Solusi syariah lengkap untuk operasional BMT yang aman, terintegrasi, dan sesuai prinsip Islam.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Mini Bank</div><div class="prod-name">Mini Bank KSPPS</div><div class="prod-desc">Core Banking System untuk KSP berskala besar yang membutuhkan layanan setara perbankan.</div><div class="prod-price">Rp 2.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Mini Market</div><div class="prod-desc">Sistem POS minimarket modern dengan fitur manajemen inventori dan laporan penjualan lengkap.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Toko Sembako</div><div class="prod-desc">Manajemen toko kelontong dan sembako dilengkapi kasir digital dan kontrol stok real-time.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Toko Optik</div><div class="prod-desc">POS kacamata dengan manajemen resep (prescription), riwayat pasien, dan laporan penjualan.</div><div class="prod-price">Rp 1.500.000</div></div>
+      <div class="prod-card"><div class="prod-cat">Toko / Warung</div><div class="prod-name">Counter HP</div><div class="prod-desc">Sistem POS counter handphone dengan fitur pelacakan perangkat dan manajemen servis.</div><div class="prod-price">Rp 1.500.000</div></div>
     </div>
   </div>
 </div>
@@ -702,12 +826,12 @@ BRI 789001005408534 an PT MITRA AULIA INDONESIA.</p>
 <div class="cta-block">
   <div class="cta-inner reveal">
     <div>
-      <h2>Siap <em>Gaspol</em><br/>Digitalisasi Bisnis?</h2>
-      <p>Konsultasi gratis bareng tim AuliaSoft. Kita bantu kalian nemuin solusi yang paling pas buat jenis dan skala usaha kalian.</p>
+      <h2>Siap Memulai<br/><em>Digitalisasi Bisnis</em>?</h2>
+      <p>Konsultasikan kebutuhan kamu dengan tim AuliaSoft secara gratis. Kami siap membantu menemukan solusi yang paling tepat sesuai jenis dan skala usaha kalian — tanpa tekanan, tanpa biaya awal.</p>
     </div>
     <a href="https://wa.me/6281241945881" class="cta-wa" target="_blank">
       <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.118 1.527 5.845L.057 23.761a.5.5 0 0 0 .614.632l6.077-1.595A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 0 1-5.028-1.383l-.36-.214-3.73.979.997-3.648-.235-.374A9.794 9.794 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-      Chat WA Sekarang ↗
+      Hubungi Kami via WhatsApp ↗
     </a>
   </div>
 </div>
@@ -715,7 +839,7 @@ BRI 789001005408534 an PT MITRA AULIA INDONESIA.</p>
 <!-- FOOTER -->
 <footer>
   <a href="https://www.auliasoft.com" class="footer-logo" target="_blank">OswaldWillybald©</a>
-  <p>© 2026 PT AuliaSoft · Support 24/7 via <a href="https://wa.me/6281241945881" target="_blank">WhatsApp</a></p>
+  <p>© 2026 PT AuliaSoft · Dukungan 24/7 via <a href="https://wa.me/6281241945881" target="_blank">WhatsApp</a></p>
 </footer>
 
 <script>
